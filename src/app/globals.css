@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+:root {
+  /* Base surfaces — Cyberpunk Dark (default) */
+  --background: #060613;
+  --surface: #0d0e22;
+  --surface-hover: #14162e;
+  --border: #262a4d;
+
+  /* Text */
+  --text-primary: #eef1ff;
+  --text-secondary: #9aa0c8;
+  --text-muted: #656a94;
+
+  /* Neon accents */
+  --accent: #ff2ec4;
+  --accent-soft: rgba(255, 46, 196, 0.12);
+  --accent-2: #00f0ff;
+  --accent-2-soft: rgba(0, 240, 255, 0.12);
+  --accent-contrast: #05030a;
+
+  /* Glow */
+  --glow-accent: 0 0 24px rgba(255, 46, 196, 0.35);
+  --glow-accent-2: 0 0 24px rgba(0, 240, 255, 0.3);
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Layout */
+  --container-width: 1120px;
+
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  color-scheme: dark;
+}
+
+:root.light {
+  /* Cyberpunk Light */
+  --background: #f4f2fb;
+  --surface: #ffffff;
+  --surface-hover: #ece9f9;
+  --border: #dcd8f0;
+
+  --text-primary: #14122a;
+  --text-secondary: #4d4a72;
+  --text-muted: #8683a8;
+
+  --accent: #c6008a;
+  --accent-soft: rgba(198, 0, 138, 0.08);
+  --accent-2: #0090a6;
+  --accent-2-soft: rgba(0, 144, 166, 0.08);
+  --accent-contrast: #fdfaff;
+
+  --glow-accent: 0 0 18px rgba(198, 0, 138, 0.18);
+  --glow-accent-2: 0 0 18px rgba(0, 144, 166, 0.16);
+
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-accent-2-soft: var(--accent-2-soft);
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+* {
+  scroll-behavior: auto;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-body), sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Neon text/glow utilities */
+.text-glow {
+  text-shadow: 0 0 16px var(--accent), 0 0 40px var(--accent-soft);
+}
+
+.neon-border {
+  box-shadow: var(--glow-accent);
+}
+
+/* Cyberpunk grid backdrop */
+.cyber-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 75%);
+  opacity: 0.5;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
