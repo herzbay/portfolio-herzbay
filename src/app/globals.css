@@ -1,25 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* Purple → Indigo → Navy gradient identity */
   --gradient-start: #6700a3;
   --gradient-mid: #1b2062;
   --gradient-end: #050c38;
+  --gradient-black: #000000;
   --page-gradient: linear-gradient(
     135deg,
     var(--gradient-start) 0%,
-    var(--gradient-mid) 45%,
-    var(--gradient-end) 100%
+    var(--gradient-mid) 38%,
+    var(--gradient-end) 68%,
+    var(--gradient-black) 100%
   );
 
-  --background: #050c38;
+  --background: #030308;
   --surface: rgba(27, 32, 98, 0.45);
   --surface-hover: rgba(103, 0, 163, 0.22);
   --border: rgba(168, 130, 255, 0.18);
 
-  --text-primary: #f5f3ff;
-  --text-secondary: #c7c2e8;
-  --text-muted: #8e88b8;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-muted: rgba(255, 255, 255, 0.45);
 
   --accent: #a64dff;
   --accent-soft: rgba(166, 77, 255, 0.14);
@@ -131,7 +132,7 @@ h1, h2, h3, h4 {
   mask-image: radial-gradient(ellipse 70% 60% at 50% 25%, black 0%, transparent 75%);
 }
 
-/* Sparkle twinkle — pure CSS, independent of JS hydration */
+/* Sparkle twinkle */
 @keyframes sparkle-twinkle {
   0%, 100% { opacity: 0.35; transform: scale(0.85); }
   50% { opacity: 1; transform: scale(1.1); }
@@ -143,6 +144,45 @@ h1, h2, h3, h4 {
 @keyframes reveal-up {
   from { transform: translateY(14px); }
   to { transform: translateY(0); }
+}
+
+/* Spinning border button */
+.btn-spin-border {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+.btn-spin-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    #ffffff 12%,
+    transparent 26%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  animation: spin-border 2.4s linear infinite;
+  transition: opacity 0.25s ease;
+}
+.btn-spin-border:hover::before,
+.btn-spin-border:focus-visible::before {
+  opacity: 1;
+}
+@keyframes spin-border {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-spin-border::before {
+    animation: none;
+  }
 }
 
 ::-webkit-scrollbar {
