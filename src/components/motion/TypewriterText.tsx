@@ -18,49 +18,54 @@ export function TypewriterText({
   pauseDuration = 1800,
 }: TypewriterTextProps) {
   const [display, setDisplay] = useState("");
-  const phaseRef = useRef<"typing" | "deleting">("typing");
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let prefersReducedMotion = false;
+    try {
+      prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+    } catch {
+      prefersReducedMotion = false;
+    }
 
     if (prefersReducedMotion) {
       setDisplay(text);
       return;
     }
 
-    phaseRef.current = "typing";
-    let charIndex = 0;
-    let timeoutId: ReturnType<typeof setTimeout>;
+    let index = 0;
+    let isDeleting = false;
+    setDisplay("");
 
     function tick() {
-      if (phaseRef.current === "typing") {
-        charIndex += 1;
-        setDisplay(text.slice(0, charIndex));
+      if (!isDeleting) {
+        index += 1;
+        setDisplay(text.slice(0, index));
 
-        if (charIndex >= text.length) {
-          phaseRef.current = "deleting";
-          timeoutId = setTimeout(tick, pauseDuration);
-        } else {
-          timeoutId = setTimeout(tick, typingSpeed);
-        }
+        timeoutRef.current = setTimeout(
+          tick,
+          index >= text.length ? pauseDuration : typingSpeed
+        );
+        if (index >= text.length) isDeleting = true;
       } else {
-        charIndex -= 1;
-        setDisplay(text.slice(0, Math.max(charIndex, 0)));
+        index -= 1;
+        setDisplay(text.slice(0, Math.max(index, 0)));
 
-        if (charIndex <= 0) {
-          phaseRef.current = "typing";
-          timeoutId = setTimeout(tick, 400);
-        } else {
-          timeoutId = setTimeout(tick, deletingSpeed);
-        }
+        timeoutRef.current = setTimeout(
+          tick,
+          index <= 0 ? 400 : deletingSpeed
+        );
+        if (index <= 0) isDeleting = false;
       }
     }
 
-    timeoutId = setTimeout(tick, typingSpeed);
+    timeoutRef.current = setTimeout(tick, typingSpeed);
 
-    return () => clearTimeout(timeoutId);
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, [text, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
