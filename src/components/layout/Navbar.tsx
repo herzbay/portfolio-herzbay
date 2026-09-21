@@ -4,18 +4,21 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 import { Sparkle } from "@/components/ui/Sparkle";
+import { useLocale } from "@/lib/use-locale";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
+  { key: "about", href: "#about" },
+  { key: "skills", href: "#skills" },
+  { key: "projects", href: "#projects" },
+  { key: "experience", href: "#experience" },
+  { key: "contact", href: "#contact" },
+] as const;
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLocale();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/60 backdrop-blur-md">
@@ -29,21 +32,28 @@ export function Navbar() {
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="text-sm text-text-secondary transition-colors hover:text-accent"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-4">
+          <ul className="hidden items-center gap-6 md:flex">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-sm text-text-secondary transition-colors hover:text-accent"
+                >
+                  {t.nav[item.key]}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        <div className="flex items-center gap-3">
+          <span
+            className="hidden h-5 w-px bg-border md:block"
+            aria-hidden="true"
+          />
+
+          <LanguageSwitch />
           <ThemeToggle />
+
           <button
             type="button"
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -57,19 +67,22 @@ export function Navbar() {
       </nav>
 
       {isOpen && (
-        <ul className="flex flex-col gap-1 border-t border-border bg-background px-6 py-4 md:hidden">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block rounded-[var(--radius-sm)] px-2 py-3 text-base text-text-secondary hover:text-accent"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="flex flex-col gap-4 border-t border-border bg-background px-6 py-4 md:hidden">
+          <ul className="flex flex-col gap-1">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block rounded-[var(--radius-sm)] px-2 py-3 text-base text-text-secondary hover:text-accent"
+                >
+                  {t.nav[item.key]}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <LanguageSwitch />
+        </div>
       )}
     </header>
   );

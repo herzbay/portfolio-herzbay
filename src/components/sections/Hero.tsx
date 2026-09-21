@@ -8,9 +8,11 @@ import { Sparkle } from "@/components/ui/Sparkle";
 import { AvatarFrame } from "@/components/ui/AvatarFrame";
 import { TypewriterText } from "@/components/motion/TypewriterText";
 import { socialLinks } from "@/data/social";
+import { useLocale } from "@/lib/use-locale";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLocale();
 
   const revealUp = (delay: number) => ({
     initial: { y: shouldReduceMotion ? 0 : 20 },
@@ -40,7 +42,7 @@ export function Hero() {
             className="text-glow mb-4 inline-flex items-center gap-2 font-[family-name:var(--font-mono)] text-xl font-semibold uppercase tracking-[0.1em] text-accent sm:text-2xl md:text-3xl"
           >
             <Sparkle className="h-6 w-6 shrink-0" />
-            <TypewriterText text="Full Stack Engineer" />
+            <TypewriterText text={t.hero.role} />
           </motion.p>
 
           <motion.h1
@@ -54,9 +56,7 @@ export function Hero() {
             {...revealUp(0.2)}
             className="mt-6 max-w-xl text-lg text-text-secondary sm:text-xl"
           >
-            I design and build end-to-end digital products — from Android
-            apps to modern web platforms — turning ideas into fast,
-            reliable, and user-friendly software.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -64,10 +64,10 @@ export function Hero() {
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <Button href="#projects">
-              View Projects <ArrowRight size={16} />
+              {t.hero.viewProjects} <ArrowRight size={16} />
             </Button>
             <Button href="#contact" variant="secondary">
-              Get In Touch
+              {t.hero.getInTouch}
             </Button>
           </motion.div>
 
