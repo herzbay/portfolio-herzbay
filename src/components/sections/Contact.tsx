@@ -11,15 +11,12 @@ export function Contact() {
       <div className="mx-auto max-w-[var(--container-width)] px-6">
         <FadeIn>
           <SectionHeading
-            eyebrow="Kontak"
+            eyebrow="Contact"
             title="Let's Talk"
-            description="Terbuka untuk peluang kerja, kolaborasi project, atau sekadar diskusi seputar development."
+            description="Open to job opportunities, project collaborations, or just a chat about development."
           />
-
           <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
-            <Button href={`mailto:${contactEmail}`}>
-              <Mail size={16} /> {contactEmail}
-            </Button>
+            <Button href={`mailto:${contactEmail}`}><Mail size={16} /> {contactEmail}</Button>
             <SocialLinks links={socialLinks} />
           </div>
         </FadeIn>

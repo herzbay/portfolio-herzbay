@@ -5,9 +5,7 @@ import type { ReactNode } from "react";
 
 const container = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.08 },
-  },
+  show: { transition: { staggerChildren: 0.08 } },
 };
 
 export function StaggerGroup({
@@ -30,6 +28,7 @@ export function StaggerGroup({
   );
 }
 
+// Konten SELALU opacity: 1 — animasi hanya transform.
 export function StaggerItem({
   children,
   className,
@@ -39,12 +38,8 @@ export function StaggerItem({
 }) {
   const shouldReduceMotion = useReducedMotion();
   const item = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 12 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4, ease: "easeOut" as const },
-    },
+    hidden: { y: shouldReduceMotion ? 0 : 12 },
+    show: { y: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
   };
 
   return (

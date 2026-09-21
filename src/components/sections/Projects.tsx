@@ -8,9 +8,9 @@ export function Projects() {
     <section id="projects" className="border-b border-border py-24 sm:py-32">
       <div className="mx-auto max-w-[var(--container-width)] px-6">
         <SectionHeading
-          eyebrow="Karya"
+          eyebrow="Selected Work"
           title="Featured Projects"
-          description="Beberapa project yang pernah saya bangun, dari ide sampai jadi aplikasi yang bisa dipakai."
+          description="A selection of projects I've built, from idea to a working, usable product."
         />
 
         <div className="flex flex-col gap-8">

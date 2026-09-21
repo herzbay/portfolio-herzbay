@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Unbounded, Montserrat, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
@@ -23,11 +23,37 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-// TODO: ganti dengan nama, role, dan deskripsi asli sebelum deploy
+const siteUrl = "https://bayuherlambang.dev"; // TODO: ganti dengan domain asli
+const title = "Bayu Herlambang — Full Stack Developer";
+const description =
+  "Portfolio of Bayu Herlambang, a Full Stack Developer specializing in web and mobile application development — from Android apps to modern web platforms.";
+
 export const metadata: Metadata = {
-  title: "Nama Kamu — Software Engineer & Mobile Developer",
-  description:
-    "Portofolio Nama Kamu, Software Engineer yang fokus pada pengembangan Android dan Website.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  keywords: [
+    "Bayu Herlambang",
+    "Full Stack Developer",
+    "Android Developer",
+    "Web Developer",
+    "Software Engineer",
+    "Flutter Developer",
+    "Next.js Developer",
+  ],
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "Bayu Herlambang Portfolio",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
@@ -45,8 +71,8 @@ export default function RootLayout({
 
   return (
     <html
-      lang="id"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      lang="en"
+      className={`${unbounded.variable} ${montserrat.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />

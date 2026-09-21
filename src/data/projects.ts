@@ -5,42 +5,33 @@ export const projects: Project[] = [
     slug: "sizinus",
     title: "Sizinus",
     description:
-      "Aplikasi mobile Android yang membantu pelaku UMKM memahami dan mensimulasikan proses perizinan usaha, lengkap dengan rekomendasi izin dan panduan usaha yang dipersonalisasi.",
+      "An Android app that helps small business owners understand and simulate the business licensing process, complete with personalized license recommendations and guidance.",
     problem:
-      "Pelaku UMKM sering kesulitan memahami alur dan jenis perizinan usaha yang perlu diurus, sehingga proses perizinan terasa rumit dan tidak jelas.",
+      "Small business owners often struggle to understand which business licenses they need and how the process works, making licensing feel confusing and inaccessible.",
     role: "Mobile Developer (Solo Project)",
     technologies: ["Flutter", "Dart", "Firebase Auth", "Cloud Firestore"],
     features: [
-      "Simulasi perizinan usaha (khusus NIB) melalui stepper interaktif",
-      "Rekomendasi izin usaha berbasis algoritma decision tree (rule based)",
-      "Panduan usaha dengan adaptive learning path (rule based)",
-      "Sistem gamifikasi: reward, mission, dan leaderboard realtime multi-user",
-      "Riwayat simulasi dan manajemen profil pengguna",
+      "Interactive business licensing simulation (NIB) via step-by-step flow",
+      "Rule-based decision tree for license recommendations",
+      "Adaptive learning path for business guidance",
+      "Gamification: rewards, missions, and a realtime multi-user leaderboard",
+      "Simulation history and profile management",
     ],
-    // TODO: ganti dengan screenshot asli aplikasi
-    image: "/images/sizinus-cover.webp",
-    // TODO: isi jika ada live demo / GitHub repo publik
-    liveUrl: undefined,
-    githubUrl: undefined,
+    image: "/images/sizinus-cover.webp", // TODO: screenshot asli
+    liveUrl: undefined, // TODO
+    githubUrl: undefined, // TODO
     featured: true,
   },
   {
     slug: "project-website-kamu",
-    title: "Nama Project Website Kamu",
-    description:
-      "Deskripsi singkat project website ini — ganti dengan deskripsi asli sebelum publish.",
+    title: "Your Website Project",
+    description: "Short description of this website project — replace with the real description before publishing.",
     role: "Web Developer",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    features: [
-      "Ganti dengan fitur utama #1",
-      "Ganti dengan fitur utama #2",
-      "Ganti dengan fitur utama #3",
-    ],
-    // TODO: ganti dengan screenshot asli
-    image: "/images/project-placeholder.webp",
-    // TODO: isi dengan URL asli
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username-kamu/repo-kamu",
+    features: ["Replace with key feature #1", "Replace with key feature #2", "Replace with key feature #3"],
+    image: "/images/project-placeholder.webp", // TODO: screenshot asli
+    liveUrl: "https://example.com", // TODO
+    githubUrl: "https://github.com/username-kamu/repo-kamu", // TODO
     featured: true,
   },
 ];

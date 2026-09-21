@@ -12,7 +12,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project, reversed = false }: ProjectCardProps) {
   return (
     <article
-      className={`group grid items-center gap-8 rounded-[var(--radius-lg)] border border-border bg-surface p-6 transition-shadow duration-300 hover:border-accent hover:shadow-[var(--glow-accent)] sm:p-8 md:grid-cols-2 md:gap-12 ${
+      className={`group grid items-center gap-8 rounded-[var(--radius-lg)] border border-border bg-surface p-6 backdrop-blur-sm transition-shadow duration-300 hover:border-accent hover:shadow-[var(--glow-accent)] sm:p-8 md:grid-cols-2 md:gap-12 ${
         reversed ? "md:[&>*:first-child]:order-2" : ""
       }`}
     >

@@ -1,62 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  /* Base surfaces — Cyberpunk Dark (default) */
-  --background: #060613;
-  --surface: #0d0e22;
-  --surface-hover: #14162e;
-  --border: #262a4d;
+  /* Purple → Indigo → Navy gradient identity */
+  --gradient-start: #6700a3;
+  --gradient-mid: #1b2062;
+  --gradient-end: #050c38;
+  --page-gradient: linear-gradient(
+    135deg,
+    var(--gradient-start) 0%,
+    var(--gradient-mid) 45%,
+    var(--gradient-end) 100%
+  );
 
-  /* Text */
-  --text-primary: #eef1ff;
-  --text-secondary: #9aa0c8;
-  --text-muted: #656a94;
+  --background: #050c38;
+  --surface: rgba(27, 32, 98, 0.45);
+  --surface-hover: rgba(103, 0, 163, 0.22);
+  --border: rgba(168, 130, 255, 0.18);
 
-  /* Neon accents */
-  --accent: #ff2ec4;
-  --accent-soft: rgba(255, 46, 196, 0.12);
-  --accent-2: #00f0ff;
-  --accent-2-soft: rgba(0, 240, 255, 0.12);
-  --accent-contrast: #05030a;
+  --text-primary: #f5f3ff;
+  --text-secondary: #c7c2e8;
+  --text-muted: #8e88b8;
 
-  /* Glow */
-  --glow-accent: 0 0 24px rgba(255, 46, 196, 0.35);
-  --glow-accent-2: 0 0 24px rgba(0, 240, 255, 0.3);
+  --accent: #a64dff;
+  --accent-soft: rgba(166, 77, 255, 0.14);
+  --accent-2: #5b6ee1;
+  --accent-2-soft: rgba(91, 110, 225, 0.14);
+  --accent-contrast: #ffffff;
 
-  /* Shape */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --glow-accent: 0 0 28px rgba(166, 77, 255, 0.35);
+  --glow-accent-2: 0 0 28px rgba(91, 110, 225, 0.3);
 
-  /* Layout */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
   --container-width: 1120px;
 
-  --font-heading: var(--font-space-grotesk);
-  --font-body: var(--font-inter);
+  --font-heading: var(--font-unbounded);
+  --font-body: var(--font-montserrat);
   --font-mono: var(--font-jetbrains-mono);
 
   color-scheme: dark;
 }
 
 :root.light {
-  /* Cyberpunk Light */
-  --background: #f4f2fb;
-  --surface: #ffffff;
-  --surface-hover: #ece9f9;
-  --border: #dcd8f0;
+  --gradient-start: #f3e8ff;
+  --gradient-mid: #e4d9fa;
+  --gradient-end: #edebfb;
 
-  --text-primary: #14122a;
-  --text-secondary: #4d4a72;
-  --text-muted: #8683a8;
+  --background: #f5f2fc;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-hover: rgba(103, 0, 163, 0.06);
+  --border: rgba(103, 0, 163, 0.18);
 
-  --accent: #c6008a;
-  --accent-soft: rgba(198, 0, 138, 0.08);
-  --accent-2: #0090a6;
-  --accent-2-soft: rgba(0, 144, 166, 0.08);
-  --accent-contrast: #fdfaff;
+  --text-primary: #1b0f33;
+  --text-secondary: #4a3b6b;
+  --text-muted: #8478a0;
 
-  --glow-accent: 0 0 18px rgba(198, 0, 138, 0.18);
-  --glow-accent-2: 0 0 18px rgba(0, 144, 166, 0.16);
+  --accent: #6700a3;
+  --accent-soft: rgba(103, 0, 163, 0.08);
+  --accent-2: #3b4cb0;
+  --accent-2-soft: rgba(59, 76, 176, 0.08);
+  --accent-contrast: #ffffff;
+
+  --glow-accent: 0 0 18px rgba(103, 0, 163, 0.18);
+  --glow-accent-2: 0 0 18px rgba(59, 76, 176, 0.16);
 
   color-scheme: light;
 }
@@ -92,7 +100,9 @@ html {
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: var(--page-gradient);
+  background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-body), sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -108,27 +118,33 @@ h1, h2, h3, h4 {
   color: var(--accent-contrast);
 }
 
-/* Neon text/glow utilities */
 .text-glow {
-  text-shadow: 0 0 16px var(--accent), 0 0 40px var(--accent-soft);
+  text-shadow: 0 0 18px var(--accent), 0 0 42px var(--accent-soft);
 }
 
-.neon-border {
-  box-shadow: var(--glow-accent);
+/* Halftone dot decorative backdrop */
+.halftone-dots {
+  background-image: radial-gradient(var(--text-muted) 1px, transparent 1.5px);
+  background-size: 18px 18px;
+  opacity: 0.25;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 25%, black 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 25%, black 0%, transparent 75%);
 }
 
-/* Cyberpunk grid backdrop */
-.cyber-grid {
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 48px 48px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 75%);
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 75%);
-  opacity: 0.5;
+/* Sparkle twinkle — pure CSS, independent of JS hydration */
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+.sparkle-twinkle {
+  animation: sparkle-twinkle 2.6s ease-in-out infinite;
 }
 
-/* Custom scrollbar */
+@keyframes reveal-up {
+  from { transform: translateY(14px); }
+  to { transform: translateY(0); }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -143,7 +159,6 @@ h1, h2, h3, h4 {
   background: var(--accent);
 }
 
-/* Respect reduced motion globally */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

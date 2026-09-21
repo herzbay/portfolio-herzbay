@@ -3,13 +3,12 @@ import { ExperienceItem, Certification } from "@/types/portfolio";
 // TODO: sesuaikan dengan riwayat pendidikan/pengalaman asli kamu
 export const experience: ExperienceItem[] = [
   {
-    title: "S1 Informatika",
-    organization: "Nama Kampus Kamu",
-    period: "Ganti tahun mulai — Ganti tahun lulus",
-    description: "Fresh graduate jurusan Informatika.",
+    title: "B.S. in Informatics",
+    organization: "Your University",
+    period: "Start Year — Graduation Year",
+    description: "Fresh graduate in Informatics / Computer Science.",
     type: "education",
   },
 ];
 
-// TODO: isi jika ada sertifikasi/penghargaan yang bisa diverifikasi
 export const certifications: Certification[] = [];

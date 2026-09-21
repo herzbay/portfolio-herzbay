@@ -10,7 +10,7 @@ export function Experience() {
     >
       <div className="mx-auto max-w-[var(--container-width)] px-6">
         <SectionHeading
-          eyebrow="Perjalanan"
+          eyebrow="My Journey"
           title="Experience & Education"
         />
 
