@@ -2,22 +2,19 @@ import Image from "next/image";
 
 export function AvatarFrame() {
   return (
-    <div className="relative mx-auto aspect-square w-52 sm:w-64 md:w-72">
-      {/* Glow di belakang */}
+    <div className="relative mx-auto aspect-[2/3] w-44 sm:w-52 md:w-60">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-full opacity-40 blur-2xl"
+        className="pointer-events-none absolute inset-0 rounded-[var(--radius-lg)] opacity-40 blur-2xl"
         style={{ background: "var(--accent)" }}
       />
 
-      {/* Rotating gradient ring — interaktif, membesar saat hover */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 animate-[spin_6s_linear_infinite] rounded-full bg-[conic-gradient(from_0deg,var(--accent),var(--accent-2),var(--accent))] transition-transform duration-500 ease-out hover:scale-105"
+        className="absolute inset-0 animate-[spin_6s_linear_infinite] rounded-[var(--radius-lg)] bg-[conic-gradient(from_0deg,var(--accent),var(--accent-2),var(--accent))] transition-transform duration-500 ease-out hover:scale-105"
       />
 
-      {/* Frame foto */}
-      <div className="absolute inset-[6px] overflow-hidden rounded-full border-2 border-background bg-gradient-to-br from-surface to-background">
+      <div className="absolute inset-[4px] overflow-hidden rounded-[calc(var(--radius-lg)-4px)] border-2 border-background bg-gradient-to-br from-surface to-background">
         {
           <Image src="/images/avatar.webp" alt="Bayu Herlambang" fill className="object-cover" />
         }

@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useReducedMotion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 type TypewriterTextProps = {
   text: string;
@@ -18,48 +17,60 @@ export function TypewriterText({
   deletingSpeed = 50,
   pauseDuration = 1800,
 }: TypewriterTextProps) {
-  const shouldReduceMotion = useReducedMotion();
-  const [display, setDisplay] = useState(shouldReduceMotion ? text : "");
-  const [phase, setPhase] = useState<"typing" | "deleting">("typing");
+  const [display, setDisplay] = useState("");
+  const phaseRef = useRef<"typing" | "deleting">("typing");
 
   useEffect(() => {
-    if (shouldReduceMotion) return;
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    let timeout: ReturnType<typeof setTimeout>;
+    if (prefersReducedMotion) {
+      setDisplay(text);
+      return;
+    }
 
-    if (phase === "typing") {
-      if (display.length < text.length) {
-        timeout = setTimeout(
-          () => setDisplay(text.slice(0, display.length + 1)),
-          typingSpeed
-        );
+    phaseRef.current = "typing";
+    let charIndex = 0;
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    function tick() {
+      if (phaseRef.current === "typing") {
+        charIndex += 1;
+        setDisplay(text.slice(0, charIndex));
+
+        if (charIndex >= text.length) {
+          phaseRef.current = "deleting";
+          timeoutId = setTimeout(tick, pauseDuration);
+        } else {
+          timeoutId = setTimeout(tick, typingSpeed);
+        }
       } else {
-        timeout = setTimeout(() => setPhase("deleting"), pauseDuration);
-      }
-    } else {
-      if (display.length > 0) {
-        timeout = setTimeout(
-          () => setDisplay(text.slice(0, display.length - 1)),
-          deletingSpeed
-        );
-      } else {
-        timeout = setTimeout(() => setPhase("typing"), 400);
+        charIndex -= 1;
+        setDisplay(text.slice(0, Math.max(charIndex, 0)));
+
+        if (charIndex <= 0) {
+          phaseRef.current = "typing";
+          timeoutId = setTimeout(tick, 400);
+        } else {
+          timeoutId = setTimeout(tick, deletingSpeed);
+        }
       }
     }
 
-    return () => clearTimeout(timeout);
-  }, [display, phase, text, typingSpeed, deletingSpeed, pauseDuration, shouldReduceMotion]);
+    timeoutId = setTimeout(tick, typingSpeed);
+
+    return () => clearTimeout(timeoutId);
+  }, [text, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
     <span className={className}>
       {display}
-      {!shouldReduceMotion && (
-        <span
-          aria-hidden="true"
-          className="ml-0.5 inline-block w-[2px] animate-pulse bg-current align-middle"
-          style={{ height: "0.9em" }}
-        />
-      )}
+      <span
+        aria-hidden="true"
+        className="ml-0.5 inline-block w-[2px] animate-pulse bg-current align-middle"
+        style={{ height: "0.9em" }}
+      />
     </span>
   );
 }
