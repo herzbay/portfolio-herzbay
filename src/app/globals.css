@@ -123,15 +123,6 @@ h1, h2, h3, h4 {
   text-shadow: 0 0 18px var(--accent), 0 0 42px var(--accent-soft);
 }
 
-/* Halftone dot decorative backdrop */
-.halftone-dots {
-  background-image: radial-gradient(var(--text-muted) 1px, transparent 1.5px);
-  background-size: 18px 18px;
-  opacity: 0.25;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 25%, black 0%, transparent 75%);
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 25%, black 0%, transparent 75%);
-}
-
 /* Sparkle twinkle */
 @keyframes sparkle-twinkle {
   0%, 100% { opacity: 0.35; transform: scale(0.85); }

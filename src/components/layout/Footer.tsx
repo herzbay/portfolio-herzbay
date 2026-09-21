@@ -1,16 +1,12 @@
-import { socialLinks } from "@/data/social";
-import { SocialLinks } from "@/components/ui/SocialLinks";
-
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-[var(--container-width)] flex-col items-center gap-4 px-6 py-10 sm:flex-row sm:justify-between">
+      <div className="mx-auto flex max-w-[var(--container-width)] items-center justify-center px-6 py-5">
         <p className="text-sm text-text-muted">
-          © {year} Bayu Herlambang. All rights reserved.
+          Made with love by{" "}
+          <span className="font-medium text-text-secondary">Herzbay</span>{" "}
+          <span aria-hidden="true">❤️</span>
         </p>
-        <SocialLinks links={socialLinks} />
       </div>
     </footer>
   );

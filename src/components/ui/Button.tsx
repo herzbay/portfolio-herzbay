@@ -22,7 +22,8 @@ type ButtonAsButton = BaseProps &
 type ButtonProps = ButtonAsLink | ButtonAsButton;
 
 const surfaceClasses: Record<"primary" | "secondary", string> = {
-  primary: "bg-accent text-[var(--accent-contrast)]",
+  primary:
+    "bg-gradient-to-b from-surface to-background text-text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]",
   secondary:
     "bg-gradient-to-b from-surface to-background text-text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]",
 };
