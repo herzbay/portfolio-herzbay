@@ -1,3 +1,10 @@
+export type ProjectCategory =
+  | "website"
+  | "mobile"
+  | "ui-design"
+  | "machine-learning"
+  | "iot";
+
 export type Project = {
   slug: string;
   title: string;
@@ -9,6 +16,7 @@ export type Project = {
   image: string;
   liveUrl?: string;
   githubUrl?: string;
+  category: ProjectCategory;
   featured?: boolean;
 };
 
