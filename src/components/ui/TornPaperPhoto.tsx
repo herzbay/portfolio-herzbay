@@ -13,30 +13,35 @@ export function TornPaperPhoto() {
         }}
       />
 
-      {/* Foto — layer utama, mengisi container di belakang frame */}
-      <div className="absolute inset-[8%] overflow-hidden">
-        {
-          <Image
-            src="/images/avatar.webp"
-            alt="Bayu Herlambang"
-            fill
-            sizes="(min-width: 768px) 380px, 60vw"
-            className="object-cover"
-          />
-        }
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface to-background font-[family-name:var(--font-heading)] text-6xl font-bold text-text-primary">
-          BAYU
-        </div>
+      {/* Foto — di-mask mengikuti bentuk lubang sobekan */}
+      <div
+        className="absolute inset-0"
+        style={{
+          WebkitMaskImage: "url(/images/frames/torn-hole-mask.webp)",
+          maskImage: "url(/images/frames/torn-hole-mask.webp)",
+          WebkitMaskSize: "100% 100%",
+          maskSize: "100% 100%",
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+        }}
+      >
+        <Image
+          src="/images/mypp.webp"
+          alt="Bayu Herlambang"
+          fill
+          sizes="(min-width: 768px) 380px, 60vw"
+          className="object-cover"
+        />
       </div>
 
-      {/* Torn paper frame — asset WEBP, transparan di tengah, layer di atas foto */}
+      {/* Torn paper frame */}
       <Image
-        src="/images/frames/torn-paper.webp"
+        src="/images/frames/torn-paper-frame.webp"
         alt=""
         aria-hidden="true"
         fill
         sizes="(min-width: 768px) 380px, 60vw"
-        className="pointer-events-none select-none object-contain"
+        className="pointer-events-none select-none object-cover"
       />
     </div>
   );
