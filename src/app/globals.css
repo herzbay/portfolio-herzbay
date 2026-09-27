@@ -154,11 +154,26 @@ h1, h2, h3, h4 {
   background: var(--accent);
 }
 
+/* Hand-drawn marker underline — "digambar" sekali saat halaman load */
+.draw-underline {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-underline 1s ease-out 0.7s forwards;
+}
+@keyframes draw-underline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .draw-underline {
+    stroke-dashoffset: 0;
   }
 }

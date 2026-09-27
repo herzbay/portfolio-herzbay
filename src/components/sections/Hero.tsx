@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { Sparkle } from "@/components/ui/Sparkle";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 import { TornPaperPhoto } from "@/components/ui/TornPaperPhoto";
 import { TypewriterText } from "@/components/motion/TypewriterText";
 import { socialLinks } from "@/data/social";
@@ -37,13 +38,21 @@ export function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-[var(--container-width)] items-center gap-12 px-6 py-16 md:grid-cols-[1.3fr_0.7fr] md:py-0">
         <div>
-          <motion.p
-            {...revealUp(0)}
-            className="text-glow mb-4 inline-flex items-center gap-2 font-[family-name:var(--font-mono)] text-xl font-semibold uppercase tracking-[0.1em] text-accent sm:text-2xl md:text-3xl"
-          >
-            <Sparkle className="h-6 w-6 shrink-0" />
-            <TypewriterText text={t.hero.role} />
-          </motion.p>
+          <motion.div {...revealUp(0)} className="relative mb-6 inline-block">
+            <p
+              className="-skew-x-6 font-[family-name:var(--font-heading)] text-2xl font-semibold italic tracking-tight sm:text-3xl md:text-4xl"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--accent), var(--accent-2))",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              <TypewriterText text={t.hero.role} />
+            </p>
+            <MarkerUnderline className="absolute -bottom-2 left-1 h-3 w-[85%]" />
+          </motion.div>
 
           <motion.h1
             {...revealUp(0.1)}

@@ -73,8 +73,8 @@ export function TypewriterText({
       {display}
       <span
         aria-hidden="true"
-        className="ml-0.5 inline-block w-[2px] animate-pulse bg-current align-middle"
-        style={{ height: "0.9em" }}
+        className="ml-0.5 inline-block w-[2px] animate-pulse align-middle"
+        style={{ height: "0.9em", backgroundColor: "var(--accent)" }}
       />
     </span>
   );
