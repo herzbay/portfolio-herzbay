@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function TornPaperPhoto() {
   return (
-    <div className="relative mx-auto aspect-[4/5] w-64 sm:w-80 md:w-full md:max-w-sm">
+    <div className="relative mx-auto aspect-[4/5] w-72 sm:w-80 md:w-[clamp(360px,30vw,560px)] lg:w-[clamp(420px,32vw,640px)]">
       {/* Glow lembut di belakang, warna ikut tema aktif */}
       <div
         aria-hidden="true"
@@ -29,7 +29,7 @@ export function TornPaperPhoto() {
           src="/images/mypp.webp"
           alt="Bayu Herlambang"
           fill
-          sizes="(min-width: 768px) 380px, 60vw"
+          sizes="(min-width: 1280px) 680px, (min-width: 768px) 560px, 80vw"
           className="object-cover"
         />
       </div>
@@ -40,7 +40,7 @@ export function TornPaperPhoto() {
         alt=""
         aria-hidden="true"
         fill
-        sizes="(min-width: 768px) 380px, 60vw"
+        sizes="(min-width: 1280px) 680px, (min-width: 768px) 560px, 80vw"
         className="pointer-events-none select-none object-cover"
       />
     </div>

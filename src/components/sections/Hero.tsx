@@ -35,7 +35,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto grid w-full max-w-[var(--container-width)] items-center gap-12 px-6 py-16 md:grid-cols-[1.15fr_0.85fr] md:py-0">
+      <div className="relative mx-auto grid w-full max-w-[var(--container-width)] items-center gap-12 px-6 py-16 md:grid-cols-[1.3fr_0.7fr] md:py-0">
         <div>
           <motion.p
             {...revealUp(0)}
@@ -47,7 +47,7 @@ export function Hero() {
 
           <motion.h1
             {...revealUp(0.1)}
-            className="max-w-3xl text-4xl font-semibold leading-tight text-text-primary sm:text-5xl md:text-6xl"
+            className="max-w-3xl text-4xl font-semibold leading-tight text-text-primary sm:text-5xl md:text-5xl lg:text-6xl"
           >
             Bayu Herlambang
           </motion.h1>
