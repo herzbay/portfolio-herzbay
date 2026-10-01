@@ -166,6 +166,54 @@ h1, h2, h3, h4 {
   }
 }
 
+/* Shine-sweep button — adaptasi dari Uiverse.io by mrhyddenn */
+.shine-btn {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  transition:
+    background-color 0.2s ease-in,
+    color 0.2s ease-in,
+    border-color 0.2s ease-in,
+    box-shadow 0.2s ease-in;
+}
+.shine-btn:hover {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent);
+  box-shadow: 0 0 24px 4px var(--accent-soft);
+  transition:
+    background-color 0.2s ease-out,
+    color 0.2s ease-out,
+    border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+}
+.shine-btn::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 40px 22px #fff;
+  transform: skewX(-20deg);
+}
+.shine-btn:hover::before {
+  animation: shine-sweep 0.5s 0s linear;
+}
+@keyframes shine-sweep {
+  from { opacity: 0; left: 0%; }
+  50% { opacity: 1; }
+  to { opacity: 0; left: 100%; }
+}
+.shine-btn:active {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease-in;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -175,5 +223,8 @@ h1, h2, h3, h4 {
   }
   .draw-underline {
     stroke-dashoffset: 0;
+  }
+  .shine-btn::before {
+    content: none;
   }
 }

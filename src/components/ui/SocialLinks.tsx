@@ -32,7 +32,7 @@ export function SocialLinks({ links, className }: SocialLinksProps) {
             {...(isExternal
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-secondary transition-colors duration-200 hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="shine-btn flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <Icon size={18} strokeWidth={1.75} />
           </Link>
