@@ -2,10 +2,7 @@ import Image from "next/image";
 
 export function AvatarFlipCard() {
   return (
-    <div className="flip-card-wrap group relative mx-auto aspect-square w-64 sm:w-72 md:w-[clamp(280px,24vw,380px)] lg:w-[clamp(320px,26vw,420px)]">
-      <span className="flip-card-border-static" aria-hidden="true" />
-      <span className="flip-card-border-glow" aria-hidden="true" />
-
+    <div className="flip-card-wrap relative mx-auto aspect-square w-64 sm:w-72 md:w-[clamp(280px,24vw,380px)] lg:w-[clamp(320px,26vw,420px)]">
       <div className="flip-card-inner relative z-10">
         <div className="flip-card-face flip-card-face-front">
           <Image
