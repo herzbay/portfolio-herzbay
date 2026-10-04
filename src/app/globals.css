@@ -214,145 +214,41 @@ h1, h2, h3, h4 {
   transition: box-shadow 0.2s ease-in;
 }
 
-/* Avatar 3D tilt card — glass style, tilt ke kiri, tanpa artefak corner */
-.tilt-card-wrap {
+/* Avatar flip card — adaptasi dari Uiverse.io by joe-watson-sbf, warna & radius ikut tema */
+.flip-card-wrap {
   perspective: 1200px;
 }
-.tilt-card {
+.flip-card-inner {
   position: relative;
-  height: 100%;
   width: 100%;
-  border-radius: 50px;
-  overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--accent) 55%, transparent) 0%,
-    color-mix(in srgb, var(--accent-2) 55%, transparent) 100%
-  );
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  height: 100%;
+  transition: transform 0.8s;
   transform-style: preserve-3d;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
 }
-.tilt-card-wrap:hover .tilt-card {
-  transform: rotateY(-14deg) rotateX(8deg) scale(1.015);
-  box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.45);
+.flip-card-wrap:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-.tilt-card-photo {
-  transform-style: preserve-3d;
-  position: absolute;
-  inset: 8px;
-  border-radius: 55px;
-  border-top-left-radius: 100%;
-  overflow: hidden;
-  transform: translate3d(0, 0, 25px);
-  border-right: 1px solid rgba(255, 255, 255, 0.6);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-  transition: all 0.5s ease-in-out;
-}
-.tilt-card-photo::after {
-  content: "";
+.flip-card-face {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.3) 100%
-  );
-  pointer-events: none;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-card-face-back {
+  transform: rotateY(180deg);
 }
 
-.tilt-card-bottom {
-  transform-style: preserve-3d;
-  position: absolute;
-  bottom: 18px;
-  left: 18px;
-  right: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translate3d(0, 0, 26px);
+.flip-card-wrap:hover .flip-card-face-front {
+  box-shadow: none;
 }
-
-.tilt-card-socials {
-  display: flex;
-  gap: 8px;
-  transform-style: preserve-3d;
+.flip-card-wrap:hover .flip-card-face-back {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
 }
-.tilt-card-social-btn {
-  width: 30px;
-  aspect-ratio: 1;
-  display: grid;
-  place-content: center;
-  border-radius: 999px;
-  border: none;
-  background: #fff;
-  color: #0a0a0a;
-  box-shadow: 0 7px 14px -5px rgba(0, 0, 0, 0.45);
-  transition:
-    transform 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out,
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-.tilt-card-social-btn:nth-child(1) { transition-delay: 0.4s; }
-.tilt-card-social-btn:nth-child(2) { transition-delay: 0.6s; }
-.tilt-card-social-btn:nth-child(3) { transition-delay: 0.8s; }
-.tilt-card-social-btn:nth-child(4) { transition-delay: 1s; }
-
-.tilt-card-wrap:hover .tilt-card-social-btn {
-  transform: translate3d(0, 0, 50px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
-}
-/* Zoom tambahan pas tombolnya sendiri di-hover — efek "timbul" lebih terasa */
-.tilt-card-wrap:hover .tilt-card-social-btn:hover {
-  transform: translate3d(0, 0, 65px) scale(1.25);
-  background: #000;
-  color: #fff;
-  transition-delay: 0s;
-}
-.tilt-card-social-btn:active {
-  background: var(--accent);
-  color: #fff;
-}
-
-.tilt-card-logo {
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform-style: preserve-3d;
-}
-.tilt-card-circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.18);
-  transition: transform 0.5s ease-in-out;
-}
-.tilt-card-circle-1 { width: 58.6%; top: 2.8%; left: 2.8%; transform: translate3d(0, 0, 20px); }
-.tilt-card-circle-2 {
-  width: 48.3%; top: 3.4%; left: 3.4%; transform: translate3d(0, 0, 40px);
-  backdrop-filter: blur(1px); transition-delay: 0.4s;
-}
-.tilt-card-circle-3 { width: 37.9%; top: 5.9%; left: 5.9%; transform: translate3d(0, 0, 60px); transition-delay: 0.8s; }
-.tilt-card-circle-4 { width: 27.6%; top: 7.9%; left: 7.9%; transform: translate3d(0, 0, 80px); transition-delay: 1.2s; }
-.tilt-card-circle-5 {
-  width: 17.2%; top: 10.3%; left: 10.3%; transform: translate3d(0, 0, 100px);
-  display: grid; place-content: center; transition-delay: 1.6s;
-  color: #fff;
-}
-
-.tilt-card-wrap:hover .tilt-card-circle-2 { transform: translate3d(0, 0, 60px); }
-.tilt-card-wrap:hover .tilt-card-circle-3 { transform: translate3d(0, 0, 80px); }
-.tilt-card-wrap:hover .tilt-card-circle-4 { transform: translate3d(0, 0, 100px); }
-.tilt-card-wrap:hover .tilt-card-circle-5 { transform: translate3d(0, 0, 120px); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -367,12 +263,10 @@ h1, h2, h3, h4 {
   .shine-btn::before {
     content: none;
   }
-  .tilt-card,
-  .tilt-card-circle,
-  .tilt-card-social-btn {
+  .flip-card-inner {
     transition: none !important;
   }
-  .tilt-card-wrap:hover .tilt-card {
+  .flip-card-wrap:hover .flip-card-inner {
     transform: none !important;
   }
 }
