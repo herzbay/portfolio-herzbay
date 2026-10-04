@@ -250,6 +250,54 @@ h1, h2, h3, h4 {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
 }
 
+/* Border statis halus (selalu terlihat) + glow "ular" berputar saat hover */
+.flip-card-border-static {
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--radius-lg) + 1px);
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    var(--border) 35%,
+    var(--border) 65%,
+    var(--accent-2) 100%
+  );
+  opacity: 0.6;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+.flip-card-wrap:hover .flip-card-border-static {
+  opacity: 0;
+}
+
+.flip-card-border-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: calc(var(--radius-lg) + 4px);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--accent) 8%,
+    var(--accent-2) 18%,
+    transparent 32%,
+    transparent 68%,
+    var(--accent-2) 82%,
+    var(--accent) 92%,
+    transparent 100%
+  );
+  filter: blur(2px);
+  opacity: 0;
+  z-index: 0;
+  animation: flip-card-border-spin 2.4s linear infinite;
+  transition: opacity 0.3s ease;
+}
+.flip-card-wrap:hover .flip-card-border-glow {
+  opacity: 1;
+}
+@keyframes flip-card-border-spin {
+  to { transform: rotate(360deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -268,5 +316,8 @@ h1, h2, h3, h4 {
   }
   .flip-card-wrap:hover .flip-card-inner {
     transform: none !important;
+  }
+  .flip-card-border-glow {
+    animation: none !important;
   }
 }
