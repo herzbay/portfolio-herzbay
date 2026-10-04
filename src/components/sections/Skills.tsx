@@ -1,16 +1,19 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import { FadeIn } from "@/components/motion/FadeIn";
 import { skills } from "@/data/skills";
 
 export function Skills() {
   return (
     <section id="skills" className="border-b border-border py-24 sm:py-32">
       <div className="mx-auto max-w-[var(--container-width)] px-6">
-        <SectionHeading
+        <FadeIn>
+          <SectionHeading
           eyebrow="What I Work With"
           title="Skills & Tech Stack"
           description="Technologies I use to build mobile apps and web platforms end-to-end."
-        />
+          />
+        </FadeIn>
 
         <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {skills.map((group) => (

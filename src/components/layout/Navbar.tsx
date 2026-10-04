@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
-import { Sparkle } from "@/components/ui/Sparkle";
 import { useLocale } from "@/lib/use-locale";
 
 const navItems = [
@@ -24,9 +24,14 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/60 backdrop-blur-md">
       <nav className="mx-auto flex max-w-[var(--container-width)] items-center justify-between px-6 py-4">
         <Link href="#" className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-[var(--radius-sm)] bg-accent text-accent-contrast shadow-[var(--glow-accent)]">
-            <Sparkle className="h-4 w-4" />
-          </span>
+          <Image
+            src="/images/logonav.webp"
+            alt="Portfolio logo"
+            width={32}
+            height={32}
+            priority
+            className="h-8 w-8 rounded-[var(--radius-sm)] shadow-[var(--glow-accent)]"
+          />
           <span className="font-[family-name:var(--font-heading)] text-lg font-semibold text-text-primary">
             Portfolio
           </span>

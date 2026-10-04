@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import { FadeIn } from "@/components/motion/FadeIn";
 import { experience, certifications } from "@/data/experience";
 
 export function Experience() {
@@ -9,10 +10,9 @@ export function Experience() {
       className="border-b border-border py-24 sm:py-32"
     >
       <div className="mx-auto max-w-[var(--container-width)] px-6">
-        <SectionHeading
-          eyebrow="My Journey"
-          title="Experience & Education"
-        />
+        <FadeIn>
+          <SectionHeading eyebrow="My Journey" title="Experience & Education" />
+        </FadeIn>
 
         <StaggerGroup className="flex flex-col gap-6">
           {experience.map((item) => (
