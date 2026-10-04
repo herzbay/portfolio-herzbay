@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { Sparkle } from "@/components/ui/Sparkle";
 import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
-import { TornPaperPhoto } from "@/components/ui/TornPaperPhoto";
+import { AvatarTiltCard } from "@/components/ui/AvatarTiltCard";
 import { TypewriterText } from "@/components/motion/TypewriterText";
 import { socialLinks } from "@/data/social";
 import { useLocale } from "@/lib/use-locale";
@@ -86,7 +86,7 @@ export function Hero() {
         </div>
 
         <motion.div {...revealUp(0.2)} className="order-first md:order-last">
-          <TornPaperPhoto />
+          <AvatarTiltCard />
         </motion.div>
       </div>
     </section>
