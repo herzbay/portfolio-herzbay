@@ -1,7 +1,7 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { FadeIn } from "@/components/motion/FadeIn";
-import { experience, certifications } from "@/data/experience";
+import { experience } from "@/data/experience";
 
 export function Experience() {
   return (
@@ -39,27 +39,6 @@ export function Experience() {
             </StaggerItem>
           ))}
         </StaggerGroup>
-
-        {certifications.length > 0 && (
-          <div className="mt-16">
-            <h3 className="mb-6 text-xl font-medium text-text-primary">
-              Certifications
-            </h3>
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {certifications.map((cert) => (
-                <li
-                  key={cert.title}
-                  className="rounded-[var(--radius-sm)] border border-border bg-surface p-4 text-sm text-text-secondary"
-                >
-                  <span className="font-medium text-text-primary">
-                    {cert.title}
-                  </span>{" "}
-                  — {cert.issuer} ({cert.year})
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </section>
   );

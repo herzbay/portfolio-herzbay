@@ -7,6 +7,7 @@ export const translations = {
       skills: "Skills",
       projects: "Projects",
       experience: "Experience",
+      certifications: "Certifications",
       contact: "Contact",
     },
     hero: {
@@ -23,6 +24,7 @@ export const translations = {
       skills: "Keahlian",
       projects: "Proyek",
       experience: "Pengalaman",
+      certifications: "Sertifikat",
       contact: "Kontak",
     },
     hero: {
