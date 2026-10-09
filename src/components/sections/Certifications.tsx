@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { CertificationCard } from "@/components/ui/CertificationCard";
+import { PageSwitcher } from "@/components/ui/PageSwitcher";
 import { certifications } from "@/data/experience";
 
 const PAGE_SIZE = 4;
@@ -26,9 +26,10 @@ export function Certifications() {
   const start = page * PAGE_SIZE;
   const currentItems = certifications.slice(start, start + PAGE_SIZE);
 
-  function goTo(targetPage: number, dir: number) {
-    setDirection(dir);
-    setPage((targetPage + totalPages) % totalPages);
+  function goTo(target: number) {
+    if (target === page) return;
+    setDirection(target > page ? 1 : -1);
+    setPage(target);
   }
 
   return (
@@ -65,26 +66,14 @@ export function Certifications() {
         </div>
 
         {totalPages > 1 && (
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => goTo(page - 1, -1)}
-              aria-label="Previous certifications"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-accent hover:text-accent"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <span className="font-[family-name:var(--font-mono)] text-xs text-text-muted">
-              {page + 1} / {totalPages}
-            </span>
-            <button
-              type="button"
-              onClick={() => goTo(page + 1, 1)}
-              aria-label="Next certifications"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-accent hover:text-accent"
-            >
-              <ChevronRight size={18} />
-            </button>
+          <div className="mt-8 flex justify-center">
+            <PageSwitcher
+              total={totalPages}
+              active={page}
+              onChange={goTo}
+              label="Certification pages"
+              name="certification-page"
+            />
           </div>
         )}
       </div>
