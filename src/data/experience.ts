@@ -11,35 +11,28 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
+// TODO: ganti placeholder dengan sertifikat asli
+function placeholderCertification(index: number, date: string): Certification {
+  return {
+    title: `Certification Title ${index}`,
+    issuer: "Issuing Organization",
+    year: date,
+    description:
+      "Short description of what this certification covers — replace with the real summary.",
+  };
+}
+
 export const certifications: Certification[] = [
-  {
-    title: "Certification Title 1",
-    issuer: "Issuing Organization",
-    year: "2025",
-    description: "Short description of what this certification covers — replace with the real summary.",
-  },
-  {
-    title: "Certification Title 2",
-    issuer: "Issuing Organization",
-    year: "2025",
-    description: "Short description of what this certification covers — replace with the real summary.",
-  },
-  {
-    title: "Certification Title 3",
-    issuer: "Issuing Organization",
-    year: "2024",
-    description: "Short description of what this certification covers — replace with the real summary.",
-  },
-  {
-    title: "Certification Title 4",
-    issuer: "Issuing Organization",
-    year: "2024",
-    description: "Short description of what this certification covers — replace with the real summary.",
-  },
-  {
-    title: "Certification Title 5",
-    issuer: "Issuing Organization",
-    year: "2023",
-    description: "Short description of what this certification covers — replace with the real summary.",
-  },
+  placeholderCertification(1, "Mar 2025"),
+  placeholderCertification(2, "Feb 2025"),
+  placeholderCertification(3, "Jan 2025"),
+  placeholderCertification(4, "Nov 2024"),
+  placeholderCertification(5, "Sep 2024"),
+  placeholderCertification(6, "Jul 2024"),
+  placeholderCertification(7, "May 2024"),
+  placeholderCertification(8, "Mar 2024"),
+  placeholderCertification(9, "Dec 2023"),
+  placeholderCertification(10, "Oct 2023"),
+  placeholderCertification(11, "Aug 2023"),
+  placeholderCertification(12, "Jun 2023"),
 ];
