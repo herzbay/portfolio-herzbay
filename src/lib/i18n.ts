@@ -13,8 +13,9 @@ export const translations = {
     hero: {
       role: "Full Stack Engineer",
       description:
-        "I design and build end-to-end digital products — from Android apps to modern web platforms — turning ideas into fast, reliable, and user-friendly software.",
+        "End-to-end web and Android development, clean architecture, reliable backends, and polished interfaces built for real users.",
       viewProjects: "View Projects",
+      downloadCv: "Download CV",
       getInTouch: "Get In Touch",
     },
   },
@@ -30,8 +31,9 @@ export const translations = {
     hero: {
       role: "Full Stack Engineer",
       description:
-        "Saya merancang dan membangun produk digital secara menyeluruh — dari aplikasi Android hingga platform web modern — mengubah ide menjadi software yang cepat, andal, dan ramah pengguna.",
+        "Pengembangan aplikasi web dan Android secara menyeluruh — arsitektur yang rapi, backend yang andal, dan antarmuka yang nyaman digunakan.",
       viewProjects: "Lihat Proyek",
+      downloadCv: "Unduh CV",
       getInTouch: "Hubungi Saya",
     },
   },
