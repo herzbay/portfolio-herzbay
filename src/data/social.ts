@@ -1,27 +1,26 @@
 import { SocialLink } from "@/types/portfolio";
 
-// TODO: ganti dengan link asli kamu
 export const socialLinks: SocialLink[] = [
   {
     label: "GitHub",
-    url: "https://github.com/username-kamu",
+    url: "https://github.com/herzbay",
     icon: "github",
   },
   {
     label: "LinkedIn",
-    url: "https://linkedin.com/in/username-kamu",
+    url: "https://www.linkedin.com/in/bayher",
     icon: "linkedin",
   },
   {
     label: "Instagram",
-    url: "https://instagram.com/username-kamu",
+    url: "https://www.instagram.com/herzbay",
     icon: "instagram",
   },
   {
     label: "Email",
-    url: "mailto:email-kamu@example.com",
+    url: "mailto:bayuherlambang1205@gmail.com",
     icon: "mail",
   },
 ];
 
-export const contactEmail = "email-kamu@example.com";
+export const contactEmail = "bayuherlambang1205@gmail.com";
