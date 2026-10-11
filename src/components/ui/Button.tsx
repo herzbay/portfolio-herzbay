@@ -29,7 +29,7 @@ const surfaceClasses: Record<SurfaceVariant, string> = {
   primary: graphiteSurface,
   secondary: graphiteSurface,
   accent:
-    "bg-accent text-[var(--accent-contrast)] shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]",
+    "bg-white text-[#0a0f1a] shadow-[inset_0_1px_0_rgba(0,0,0,0.06)]",
 };
 
 function SpinBorderContent({
