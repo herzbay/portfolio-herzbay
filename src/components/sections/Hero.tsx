@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { Sparkle } from "@/components/ui/Sparkle";
@@ -72,7 +72,14 @@ export function Hero() {
             {...revealUp(0.3)}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <Button href="#projects">
+            <Button
+              href="/cv/Bayu-Herlambang-CV.pdf"
+              download="Bayu-Herlambang-CV.pdf"
+              variant="accent"
+            >
+              <Download size={16} /> {t.hero.downloadCv}
+            </Button>
+            <Button href="#projects" variant="secondary">
               {t.hero.viewProjects} <ArrowRight size={16} />
             </Button>
             <Button href="#contact" variant="secondary">

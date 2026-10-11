@@ -31,7 +31,7 @@ export const translations = {
     hero: {
       role: "Full Stack Engineer",
       description:
-        "Pengembangan aplikasi web dan Android secara menyeluruh — arsitektur yang rapi, backend yang andal, dan antarmuka yang nyaman digunakan.",
+        "Pengembangan aplikasi web dan Android secara menyeluruh, arsitektur yang rapi, backend yang andal, dan antarmuka yang nyaman digunakan.",
       viewProjects: "Lihat Proyek",
       downloadCv: "Unduh CV",
       getInTouch: "Hubungi Saya",
