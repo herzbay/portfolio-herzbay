@@ -2,7 +2,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { ComponentPropsWithoutRef } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "accent" | "ghost";
+type SurfaceVariant = Exclude<ButtonVariant, "ghost">;
 
 type BaseProps = {
   variant?: ButtonVariant;
@@ -21,18 +22,21 @@ type ButtonAsButton = BaseProps &
 
 type ButtonProps = ButtonAsLink | ButtonAsButton;
 
-const surfaceClasses: Record<"primary" | "secondary", string> = {
-  primary:
-    "bg-gradient-to-b from-surface to-background text-text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]",
-  secondary:
-    "bg-gradient-to-b from-surface to-background text-text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]",
+const graphiteSurface =
+  "bg-gradient-to-b from-surface to-background text-text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]";
+
+const surfaceClasses: Record<SurfaceVariant, string> = {
+  primary: graphiteSurface,
+  secondary: graphiteSurface,
+  accent:
+    "bg-accent text-[var(--accent-contrast)] shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]",
 };
 
 function SpinBorderContent({
   variant,
   children,
 }: {
-  variant: "primary" | "secondary";
+  variant: SurfaceVariant;
   children: React.ReactNode;
 }) {
   return (
@@ -88,6 +92,16 @@ export function Button({
   if ("href" in props && props.href) {
     const { href, ...anchorProps } = props;
     const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+
+    // File download: <a> biasa, bukan next/link
+    if (anchorProps.download !== undefined) {
+      return (
+        <a href={href} className={wrapperClasses} {...anchorProps}>
+          {content}
+        </a>
+      );
+    }
+
     return (
       <Link
         href={href}
