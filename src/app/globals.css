@@ -344,6 +344,61 @@ h1, h2, h3, h4 {
   color: var(--text-secondary);
 }
 
+/* About photo — stacked cards, adaptasi dari Uiverse.io by janisar-hyder */
+.stack-card {
+  width: 100%;
+  max-width: 340px;
+  isolation: isolate;
+  transition: transform 0.25s ease;
+}
+.stack-card:hover {
+  transform: rotate(5deg);
+}
+
+.stack-card-front {
+  position: relative;
+  border: 4px solid #0a0f1a;
+  background-color: #f5f5f0;
+  padding: 5% 5% 15% 5%;
+  transition: 0.15s ease;
+}
+.stack-card-front::before,
+.stack-card-front::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 4px solid #0a0f1a;
+  background-color: #f5f5f0;
+  transform-origin: center center;
+  z-index: -1;
+  transition: 0.15s ease;
+}
+.stack-card-front::before {
+  transform: translateY(-2%) rotate(-6deg);
+}
+.stack-card-front::after {
+  transform: translateY(2%) rotate(6deg);
+}
+.stack-card:hover .stack-card-front::before {
+  transform: translateY(-2%) rotate(-4deg);
+}
+.stack-card:hover .stack-card-front::after {
+  transform: translateY(2%) rotate(4deg);
+}
+
+.stack-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 4px solid #0a0f1a;
+  background-color: #eeeeee;
+  overflow: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -369,6 +424,15 @@ h1, h2, h3, h4 {
     transition: none !important;
   }
   .cert-card:hover .cert-card-content {
+    transform: none !important;
+  }
+  .stack-card,
+  .stack-card-front,
+  .stack-card-front::before,
+  .stack-card-front::after {
+    transition: none !important;
+  }
+  .stack-card:hover {
     transform: none !important;
   }
 }
