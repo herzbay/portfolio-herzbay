@@ -6,8 +6,8 @@ export function AvatarFlipCard() {
       <div className="flip-card-inner relative z-10">
         <div className="flip-card-face flip-card-face-front">
           <Image
-            src="/images/logonav.webp"
-            alt="Bayu Herlambang"
+            src="/images/mainpp.webp"
+            alt="Photo 1"
             fill
             sizes="(min-width: 1280px) 420px, (min-width: 768px) 380px, 70vw"
             className="object-cover"
@@ -15,8 +15,8 @@ export function AvatarFlipCard() {
         </div>
         <div className="flip-card-face flip-card-face-back">
           <Image
-            src="/images/mypp.webp"
-            alt="Bayu Herlambang"
+            src="/images/ynd.webp"
+            alt="Photo 2"
             fill
             sizes="(min-width: 1280px) 420px, (min-width: 768px) 380px, 70vw"
             className="object-cover"
