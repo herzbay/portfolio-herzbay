@@ -6,7 +6,7 @@ export function AboutPhoto() {
       <div className="stack-card-front">
         <div className="stack-card-image">
           <Image
-            src="/images/secpp.webp"
+            src="/images/aboutpp.webp"
             alt="Bayu Herlambang"
             fill
             sizes="(min-width: 768px) 340px, 80vw"
