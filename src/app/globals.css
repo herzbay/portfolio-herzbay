@@ -30,6 +30,14 @@
   --accent-2-soft: rgba(26, 156, 200, 0.14);
   --accent-contrast: #ffffff;
 
+  --btn-from: var(--surface);
+  --btn-to: var(--background);
+  --btn-text: var(--text-primary);
+  --btn-accent-from: #ffffff;
+  --btn-accent-to: #ffffff;
+  --btn-accent-text: #0a0f1a;
+  --btn-beam: #ffffff;
+
   --glow-accent: 0 0 28px rgba(39, 174, 210, 0.4);
   --glow-accent-2: 0 0 28px rgba(26, 156, 200, 0.35);
 
@@ -66,6 +74,14 @@
   --accent-2: #1a9cc8;
   --accent-2-soft: rgba(26, 156, 200, 0.08);
   --accent-contrast: #ffffff;
+
+  --btn-from: #ffffff;
+  --btn-to: #eef3f7;
+  --btn-text: #071b2c;
+  --btn-accent-from: #0b3c65;
+  --btn-accent-to: #000000;
+  --btn-accent-text: #ffffff;
+  --btn-beam: #1a9cc8;
 
   --glow-accent: 0 0 18px rgba(11, 60, 101, 0.18);
   --glow-accent-2: 0 0 18px rgba(26, 156, 200, 0.16);

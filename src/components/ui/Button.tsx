@@ -23,13 +23,13 @@ type ButtonAsButton = BaseProps &
 type ButtonProps = ButtonAsLink | ButtonAsButton;
 
 const graphiteSurface =
-  "bg-gradient-to-b from-surface to-background text-text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]";
+  "bg-gradient-to-b from-[color:var(--btn-from)] to-[color:var(--btn-to)] text-[color:var(--btn-text)] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]";
 
 const surfaceClasses: Record<SurfaceVariant, string> = {
   primary: graphiteSurface,
   secondary: graphiteSurface,
   accent:
-    "bg-white text-[#0a0f1a] shadow-[inset_0_1px_0_rgba(0,0,0,0.06)]",
+    "bg-gradient-to-b from-[color:var(--btn-accent-from)] to-[color:var(--btn-accent-to)] text-[color:var(--btn-accent-text)] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]",
 };
 
 function SpinBorderContent({
@@ -44,7 +44,7 @@ function SpinBorderContent({
       {/* Spinning border beam — visible on hover/focus */}
       <span
         aria-hidden="true"
-        className="absolute inset-[-100%] animate-[spin_2.6s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_75%,#ffffff_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        className="absolute inset-[-100%] animate-[spin_2.6s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_75%,var(--btn-beam,#ffffff)_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
       />
       {/* Static edge — hides on hover */}
       <span

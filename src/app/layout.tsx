@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const siteUrl = "https://bayuherlambang.dev"; // TODO: ganti dengan domain asli
+const siteUrl = "https://bayuherlambang.dev"; 
 const title = "Bayu Herlambang — Full Stack Developer";
 const description =
   "Portfolio of Bayu Herlambang, a Full Stack Developer specializing in web and mobile application development — from Android apps to modern web platforms.";
@@ -72,6 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${unbounded.variable} ${montserrat.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
