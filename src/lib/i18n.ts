@@ -13,7 +13,7 @@ export const translations = {
     hero: {
       role: "Full Stack Engineer",
       description:
-        "End-to-end web and Android development, clean architecture, reliable backends, and polished interfaces built for real users.",
+        "Crafting intuitive web and mobile applications through clean architecture, purposeful design, and technology built to scale.",
       viewProjects: "View Projects",
       downloadCv: "Download CV",
       getInTouch: "Get In Touch",
@@ -31,7 +31,7 @@ export const translations = {
     hero: {
       role: "Full Stack Engineer",
       description:
-        "Pengembangan aplikasi web dan Android secara menyeluruh, arsitektur yang rapi, backend yang andal, dan antarmuka yang nyaman digunakan.",
+        "Membangun aplikasi web dan seluler yang intuitif melalui arsitektur yang bersih, desain yang terarah, dan teknologi yang dirancang untuk skalabilitas.",
       viewProjects: "Lihat Proyek",
       downloadCv: "Unduh CV",
       getInTouch: "Hubungi Saya",
