@@ -92,7 +92,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <motion.div {...revealUp(0.2)} className="order-first md:order-last">
+        <motion.div {...revealUp(0.2)}>
           <AvatarFlipCard />
         </motion.div>
       </div>
