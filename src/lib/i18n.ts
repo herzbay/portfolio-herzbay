@@ -3,10 +3,11 @@ export type Locale = "en" | "id";
 export const translations = {
   en: {
     nav: {
+      home: "Home",
       about: "About",
+      experience: "Experience",
       skills: "Skills",
       projects: "Projects",
-      experience: "Experience",
       certifications: "Certifications",
       contact: "Contact",
     },
@@ -21,10 +22,11 @@ export const translations = {
   },
   id: {
     nav: {
+      home: "Beranda",
       about: "Tentang",
+      experience: "Pengalaman",
       skills: "Keahlian",
       projects: "Proyek",
-      experience: "Pengalaman",
       certifications: "Sertifikat",
       contact: "Kontak",
     },

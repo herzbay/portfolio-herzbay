@@ -9,10 +9,11 @@ import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 import { useLocale } from "@/lib/use-locale";
 
 const navItems = [
+  { key: "home", href: "#hero" },
   { key: "about", href: "#about" },
+  { key: "experience", href: "#experience" },
   { key: "skills", href: "#skills" },
   { key: "projects", href: "#projects" },
-  { key: "experience", href: "#experience" },
   { key: "certifications", href: "#certifications" },
   { key: "contact", href: "#contact" },
 ] as const;
@@ -39,7 +40,7 @@ export function Navbar() {
         </Link>
 
         <div className="flex items-center gap-4">
-          <ul className="hidden items-center gap-6 md:flex">
+          <ul className="hidden items-center gap-6 lg:flex">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
@@ -53,7 +54,7 @@ export function Navbar() {
           </ul>
 
           <span
-            className="hidden h-5 w-px bg-border md:block"
+            className="hidden h-5 w-px bg-border lg:block"
             aria-hidden="true"
           />
 
@@ -65,7 +66,7 @@ export function Navbar() {
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((prev) => !prev)}
-            className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-sm)] text-text-primary md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-sm)] text-text-primary lg:hidden"
           >
             {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -73,7 +74,7 @@ export function Navbar() {
       </nav>
 
       {isOpen && (
-        <div className="flex flex-col gap-4 border-t border-border bg-background px-6 py-4 md:hidden">
+        <div className="flex flex-col gap-4 border-t border-border bg-background px-6 py-4 lg:hidden">
           <ul className="flex flex-col gap-1">
             {navItems.map((item) => (
               <li key={item.href}>
