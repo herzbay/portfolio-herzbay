@@ -18,13 +18,13 @@ export function About() {
 
         <div className="grid items-center gap-14 md:grid-cols-[1.4fr_0.6fr]">
           <FadeIn delay={0.1}>
-            <div className="max-w-2xl space-y-5 text-base leading-relaxed text-text-secondary sm:text-lg">
+            <div className="glass-card max-w-2xl space-y-5 p-6 text-justify text-base leading-relaxed text-text-primary/90 sm:p-8 sm:text-lg">
               {t.about.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-6">
               <LocationBadge label={t.about.location} />
             </div>
           </FadeIn>
