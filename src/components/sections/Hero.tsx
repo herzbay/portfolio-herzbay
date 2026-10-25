@@ -73,8 +73,8 @@ export function Hero() {
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <Button
-              href="/cv/Bayu-Herlambang-CV.pdf"
-              download="Bayu-Herlambang-CV.pdf"
+              href="https://bit.ly/3UgE5tt"
+              download="CV-Bayu Herlambang.pdf"
               variant="accent"
             >
               <Download size={16} /> {t.hero.downloadCv}

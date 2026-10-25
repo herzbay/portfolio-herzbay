@@ -16,7 +16,7 @@ export const translations = {
       description:
         "Crafting intuitive web and mobile applications through clean architecture, purposeful design, and technology built to scale.",
       viewProjects: "View Projects",
-      downloadCv: "Download CV",
+      downloadCv: "View CV",
       getInTouch: "Get In Touch",
     },
     about: {
@@ -44,7 +44,7 @@ export const translations = {
       description:
         "Membangun aplikasi web dan seluler yang intuitif melalui arsitektur yang bersih, desain yang terarah, dan teknologi yang dirancang untuk skalabilitas.",
       viewProjects: "Lihat Proyek",
-      downloadCv: "Unduh CV",
+      downloadCv: "Lihat CV",
       getInTouch: "Hubungi Saya",
     },
     about: {
