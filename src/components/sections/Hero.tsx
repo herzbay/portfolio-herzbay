@@ -73,7 +73,7 @@ export function Hero() {
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <Button
-              href="https://bit.ly/3UgE5tt"
+              href="https://bit.ly/4yMaXsv"
               download="CV-Bayu Herlambang.pdf"
               variant="accent"
             >
