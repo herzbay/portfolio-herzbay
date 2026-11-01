@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
@@ -9,6 +8,8 @@ import { AvatarFlipCard } from "@/components/ui/AvatarFlipCard";
 import { TypewriterText } from "@/components/motion/TypewriterText";
 import { socialLinks } from "@/data/social";
 import { useLocale } from "@/lib/use-locale";
+
+const heroRoles = ["Full Stack Engineer", "Web Developer"];
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -27,14 +28,22 @@ export function Hero() {
     >
       <div className="relative mx-auto grid w-full max-w-[var(--container-width)] items-center gap-12 px-6 py-16 md:grid-cols-[1.3fr_0.7fr] md:py-0">
         <div>
-          <motion.div {...revealUp(0)} className="mb-6">
-            <div className="inline-flex min-h-11 items-center rounded-lg border border-white/20 bg-background/30 px-4 py-2 backdrop-blur-sm">
-              <span className="font-[family-name:var(--font-heading)] text-base font-semibold italic tracking-tight text-text-primary sm:text-lg">
-                <TypewriterText
-                  text={["Full Stack Engineer", "Web Developer"]}
-                />
-              </span>
-            </div>
+          <motion.div
+            {...revealUp(0)}
+            className="relative mb-6 inline-block rounded-md border border-white/20 px-3 py-1"
+          >
+            <p
+              className="-skew-x-6 font-[family-name:var(--font-heading)] text-2xl font-semibold italic tracking-tight sm:text-3xl md:text-4xl"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--accent), var(--accent-2))",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              <TypewriterText text={heroRoles} />
+            </p>
           </motion.div>
 
           <motion.h1

@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type TypewriterTextProps = {
   text: string | string[];
@@ -18,24 +17,23 @@ export function TypewriterText({
   deletingSpeed = 50,
   pauseDuration = 1800,
 }: TypewriterTextProps) {
-  const texts = Array.isArray(text) ? text : [text];
+  const texts = useMemo(
+    () => (Array.isArray(text) ? text : [text]),
+    [text]
+  );
 
   const [display, setDisplay] = useState("");
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    let prefersReducedMotion = false;
+    if (texts.length === 0) return;
 
-    try {
-      prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-    } catch {
-      prefersReducedMotion = false;
-    }
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
     if (prefersReducedMotion) {
-      setDisplay(texts[0] ?? "");
+      setDisplay(texts[0]);
       return;
     }
 
@@ -46,7 +44,7 @@ export function TypewriterText({
     setDisplay("");
 
     function tick() {
-      const currentText = texts[textIndex] ?? "";
+      const currentText = texts[textIndex];
 
       if (!isDeleting) {
         charIndex += 1;

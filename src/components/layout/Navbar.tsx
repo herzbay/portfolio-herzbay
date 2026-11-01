@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -34,6 +35,7 @@ export function Navbar() {
             priority
             className="h-8 w-8 rounded-[var(--radius-sm)] shadow-[var(--glow-accent)]"
           />
+
           <span className="font-[family-name:var(--font-heading)] text-lg font-semibold text-text-primary">
             Portfolio
           </span>
@@ -58,7 +60,10 @@ export function Navbar() {
             aria-hidden="true"
           />
 
-          <LanguageSwitch />
+          <div className="hidden lg:block">
+            <LanguageSwitch />
+          </div>
+
           <ThemeToggle />
 
           <button
@@ -88,7 +93,6 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <LanguageSwitch />
         </div>
       )}
     </header>
