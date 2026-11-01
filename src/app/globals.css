@@ -458,6 +458,7 @@ h1, h2, h3, h4 {
 }
 
 
+
 /* Skills category heading */
 .skill-category-title {
   color: #ffffff;
@@ -465,4 +466,13 @@ h1, h2, h3, h4 {
 
 :root.light .skill-category-title {
   color: var(--accent-2);
+}
+
+/* Skill logos */
+.skill-logo {
+  transition: filter 0.3s ease;
+}
+
+:root:not(.light) .skill-logo {
+  filter: brightness(0) invert(1);
 }
