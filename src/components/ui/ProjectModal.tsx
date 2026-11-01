@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { X, ArrowUpRight } from "lucide-react";
+import { X, ArrowUpRight, Globe } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 import { useLocale } from "@/lib/use-locale";
 import type { Project } from "@/types/portfolio";
@@ -148,7 +148,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-sm font-medium text-text-primary hover:text-accent"
                   >
-                    <GithubIcon size={16} /> Source
+                    {project.category === "ui-design" ? (
+                      <>
+                        <Globe size={16} /> View Design
+                      </>
+                    ) : (
+                      <>
+                        <GithubIcon size={16} /> Source
+                      </>
+                    )}
+                    <ArrowUpRight size={16} />
                   </a>
                 )}
               </div>

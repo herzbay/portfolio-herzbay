@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Globe } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 import { useLocale } from "@/lib/use-locale";
 import type { Project } from "@/types/portfolio";
@@ -52,15 +53,23 @@ export function ProjectMiniCard({ project, onOpen }: ProjectMiniCardProps) {
           ))}
         </div>
 
-        {project.githubUrl && (
+        {(project.githubUrl || project.liveUrl) && (
           <a
-            href={project.githubUrl}
+            href={project.githubUrl || project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             className="mt-1 inline-flex w-fit items-center gap-1.5 text-xs font-medium text-text-secondary hover:text-accent"
           >
-            <GithubIcon size={14} /> Source
+            {project.category === "ui-design" ? (
+              <>
+                <Globe size={14} /> View Design
+              </>
+            ) : (
+              <>
+                <GithubIcon size={14} /> Source
+              </>
+            )}
           </a>
         )}
       </div>

@@ -187,14 +187,148 @@ export const projects: Project[] = [
   },
 
   // UI Design
-  placeholder("ui-design", 1),
-  placeholder("ui-design", 2),
-  placeholder("ui-design", 3),
+  {
+    slug: "ui-sizinus",
+    title: "UI SIZINUS",
+    description: {
+      en: "A UI/UX design for a gamified mobile application that helps MSMEs understand and navigate the business licensing process through an intuitive interface and interactive NIB registration simulation.",
+      id: "Desain UI/UX aplikasi mobile berbasis gamifikasi yang membantu pelaku UMKM memahami dan menjalani proses perizinan usaha melalui antarmuka intuitif dan simulasi pendaftaran NIB interaktif.",
+    },
+    technologies: ["Figma"],
+    features: {
+      en: [
+        "Mobile application interface design with light and dark modes",
+        "Interactive prototype with connected screen flows",
+        "Gamification-based user experience to support business licensing learning",
+      ],
+      id: [
+        "Desain antarmuka aplikasi mobile dengan mode terang dan gelap",
+        "Prototipe interaktif dengan alur navigasi antarlayar yang saling terhubung",
+        "Pengalaman pengguna berbasis gamifikasi untuk mendukung pembelajaran perizinan usaha",
+      ],
+    },
+    image: "/images/app-ui-sizinus.png",
+    githubUrl:
+      "https://www.figma.com/design/8z8vPQyZbZ1TfNitIZad9s/SIZINUS---Design-UI?node-id=0-1&t=3IyK2kG14AtUseae-1",
+    category: "ui-design",
+    featured: true,
+  },
+  {
+    slug: "ui-dt2-detector",
+    title: "UI DT2-Detector",
+    description: {
+      en: "A website UI/UX design for a Type 2 Diabetes Mellitus prediction system, featuring an intuitive interface for entering health parameters and viewing diabetes risk prediction results.",
+      id: "Desain UI/UX website untuk sistem prediksi Diabetes Melitus Tipe 2, dengan antarmuka intuitif untuk memasukkan parameter kesehatan dan melihat hasil prediksi risiko diabetes.",
+    },
+    technologies: ["Figma"],
+    features: {
+      en: [
+        "Website interface design for a diabetes prediction system",
+        "Health data input form covering glucose levels, blood pressure, BMI, and other parameters",
+        "Prediction result interface for displaying diabetes risk assessment",
+      ],
+      id: [
+        "Desain antarmuka website untuk sistem prediksi diabetes",
+        "Formulir input data kesehatan meliputi kadar glukosa, tekanan darah, BMI, dan parameter lainnya",
+        "Antarmuka hasil prediksi untuk menampilkan penilaian risiko diabetes",
+      ],
+    },
+    image: "/images/app-ui-detector.png",
+    githubUrl:
+      "https://www.figma.com/design/LtNV7dgFIUneHJfG7oTo8z/DT2-Detector?node-id=0-1&t=6XOolOB18LHc2ZlC-1",
+    category: "ui-design",
+    featured: true,
+  },
+  {
+    slug: "ui-mobilepay",
+    title: "UI MobilePay",
+    description: {
+      en: "A UI/UX design for a mobile e-wallet application that provides a convenient digital payment experience through intuitive navigation and essential financial transaction features.",
+      id: "Desain UI/UX aplikasi dompet digital mobile yang menghadirkan pengalaman pembayaran digital praktis melalui navigasi intuitif dan fitur transaksi keuangan esensial.",
+    },
+    technologies: ["Figma"],
+    features: {
+      en: [
+        "Mobile e-wallet interface design with intuitive navigation",
+        "Digital wallet balance and transaction history",
+        "Money transfers and digital payment interfaces",
+      ],
+      id: [
+        "Desain antarmuka dompet digital mobile dengan navigasi intuitif",
+        "Informasi saldo dompet digital dan riwayat transaksi",
+        "Antarmuka untuk transfer uang dan pembayaran digital",
+      ],
+    },
+    image: "/images/app-ui-mpay.png",
+    githubUrl:
+      "https://www.figma.com/design/krPtkDdi6dIoWFvYmL3u0B/Prototype-MobilePay?node-id=0-1&t=VgFpbDtWerxNrWXk-1",
+    category: "ui-design",
+    featured: true,
+  },
 
   // Machine Learning
-  placeholder("machine-learning", 1),
-  placeholder("machine-learning", 2),
-  placeholder("machine-learning", 3),
+  {
+    slug: "hate-speech-detection",
+    title: "Hate Speech Detection (ID)",
+    description: {
+      en: "An Indonesian text classification project that uses the IndoBERT deep learning model to identify hate speech in social media comments.",
+      id: "Proyek klasifikasi teks berbahasa Indonesia yang menggunakan model deep learning IndoBERT untuk mendeteksi ujaran kebencian pada komentar media sosial.",
+    },
+    technologies: [
+      "Python",
+      "PyTorch",
+      "IndoBERT",
+      "Hugging Face Transformers",
+      "Google Colab",
+    ],
+    features: {
+      en: [
+        "Indonesian text preprocessing, including text cleaning and slang normalization",
+        "Hate speech classification into two categories: hate speech and non-hate speech",
+        "Model evaluation using accuracy, precision, recall, F1-score, and confusion matrix",
+      ],
+      id: [
+        "Pra-pemrosesan teks bahasa Indonesia, termasuk pembersihan teks dan normalisasi kata tidak baku",
+        "Klasifikasi ujaran kebencian ke dalam dua kategori: hate speech dan non-hate speech",
+        "Evaluasi model menggunakan accuracy, precision, recall, F1-score, dan confusion matrix",
+      ],
+    },
+    image: "/images/app-hate.webp",
+    githubUrl: "https://github.com/herzbay/indonesian-hate-speech-detection",
+    category: "machine-learning",
+    featured: true,
+  },
+  {
+    slug: "weather-disease-prediction",
+    title: "Weather Disease Prediction",
+    description: {
+      en: "A machine learning project that predicts potential diseases by analyzing relationships between weather conditions, patient characteristics, and clinical symptoms using a Random Forest Classifier.",
+      id: "Proyek machine learning yang memprediksi potensi penyakit dengan menganalisis hubungan antara kondisi cuaca, karakteristik pasien, dan gejala klinis menggunakan algoritma Random Forest Classifier.",
+    },
+    technologies: [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "ipywidgets",
+      "Google Colab",
+    ],
+    features: {
+      en: [
+        "Disease prediction by combining weather conditions and patient symptom data",
+        "Interactive prediction interface with sliders and checkboxes for input simulation",
+        "Data preprocessing and model evaluation using a confusion matrix",
+      ],
+      id: [
+        "Prediksi penyakit dengan menggabungkan kondisi cuaca dan data gejala pasien",
+        "Antarmuka prediksi interaktif menggunakan slider dan checkbox untuk simulasi input",
+        "Pra-pemrosesan data dan evaluasi model menggunakan confusion matrix",
+      ],
+    },
+    image: "/images/app-weat.webp",
+    githubUrl: "https://github.com/herzbay/weather-disease-prediction",
+    category: "machine-learning",
+    featured: true,
+  },
 
   // IoT
   placeholder("iot", 1),
