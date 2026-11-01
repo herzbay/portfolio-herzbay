@@ -8,8 +8,10 @@ import { ProjectModal } from "@/components/ui/ProjectModal";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { projects, categories } from "@/data/projects";
 import type { Project, ProjectCategory } from "@/types/portfolio";
+import { useLocale } from "@/lib/use-locale";
 
 export function Projects() {
+  const { t } = useLocale();
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>(
     categories[0].key
   );
@@ -23,9 +25,9 @@ export function Projects() {
     <section id="projects" className="border-b border-border py-24 sm:py-32">
       <div className="mx-auto max-w-[var(--container-width)] px-6">
         <SectionHeading
-          eyebrow="Selected Work"
-          title="Featured Projects"
-          description="Pick a category to see the top projects in that area — click any card for the full story."
+          eyebrow={t.projects.eyebrow}
+          title={t.projects.title}
+          description={t.projects.description}
         />
 
         <FadeIn>

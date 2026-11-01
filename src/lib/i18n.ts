@@ -28,6 +28,12 @@ export const translations = {
       ],
       location: "Bekasi, West Java, Indonesia",
     },
+    projects: {
+      eyebrow: "My Projects",
+      title: "Projects & Creations",
+      description:
+        "Explore my projects across different areas of development. Select a category to discover the projects and their details.",
+    },
   },
   id: {
     nav: {
@@ -55,6 +61,12 @@ export const translations = {
         "Saya memiliki pengalaman dalam mengembangkan aplikasi dengan memanfaatkan berbagai teknologi modern serta menerapkan prinsip clean code, problem-solving, dan pengembangan perangkat lunak yang terstruktur. Saya bersemangat untuk terus mengembangkan kompetensi sebagai Full-Stack Developer, berkolaborasi dalam tim, dan berkontribusi menciptakan produk digital yang inovatif serta memberikan nilai nyata bagi pengguna dan perusahaan.",
       ],
       location: "Bekasi, Jawa Barat, Indonesia",
+    },
+    projects: {
+      eyebrow: "Proyek Saya",
+      title: "Proyek & Karya",
+      description:
+        "Jelajahi berbagai proyek yang saya kembangkan dalam beberapa bidang. Pilih kategori untuk melihat proyek beserta detailnya.",
     },
   },
 } as const;
