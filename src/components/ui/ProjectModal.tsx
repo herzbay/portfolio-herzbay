@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { X, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
+import { useLocale } from "@/lib/use-locale";
 import type { Project } from "@/types/portfolio";
 
 type ProjectModalProps = {
@@ -13,6 +14,8 @@ type ProjectModalProps = {
 };
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const { locale } = useLocale();
+
   useEffect(() => {
     if (!project) return;
 
@@ -28,6 +31,18 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       document.body.style.overflow = "";
     };
   }, [project, onClose]);
+
+  const description = project
+    ? typeof project.description === "string"
+      ? project.description
+      : project.description[locale]
+    : "";
+
+  const features = project?.features
+    ? Array.isArray(project.features)
+      ? project.features
+      : project.features[locale]
+    : [];
 
   return (
     <AnimatePresence>
@@ -74,24 +89,27 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               <h3 className="font-[family-name:var(--font-heading)] text-2xl font-semibold text-text-primary">
                 {project.title}
               </h3>
+
               {project.role && (
                 <p className="mt-1 font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-accent">
                   {project.role}
                 </p>
               )}
 
-              <p className="mt-4 text-text-secondary">{project.description}</p>
+              <p className="mt-4 text-text-secondary">{description}</p>
 
               {project.problem && (
                 <p className="mt-3 text-sm text-text-muted">
-                  <span className="font-medium text-text-secondary">Problem: </span>
+                  <span className="font-medium text-text-secondary">
+                    Problem:{" "}
+                  </span>
                   {project.problem}
                 </p>
               )}
 
-              {project.features && project.features.length > 0 && (
+              {features.length > 0 && (
                 <ul className="mt-5 space-y-1.5 text-sm text-text-secondary">
-                  {project.features.map((feature) => (
+                  {features.map((feature) => (
                     <li key={feature} className="flex gap-2">
                       <span className="text-accent">›</span>
                       <span>{feature}</span>
@@ -122,6 +140,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     Live Demo <ArrowUpRight size={16} />
                   </a>
                 )}
+
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}

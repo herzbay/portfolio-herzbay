@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { GithubIcon } from "@/components/ui/BrandIcons";
+import { useLocale } from "@/lib/use-locale";
 import type { Project } from "@/types/portfolio";
 
 type ProjectMiniCardProps = {
@@ -8,6 +9,13 @@ type ProjectMiniCardProps = {
 };
 
 export function ProjectMiniCard({ project, onOpen }: ProjectMiniCardProps) {
+  const { locale } = useLocale();
+
+  const description =
+    typeof project.description === "string"
+      ? project.description
+      : project.description[locale];
+
   return (
     <button
       type="button"
@@ -28,8 +36,9 @@ export function ProjectMiniCard({ project, onOpen }: ProjectMiniCardProps) {
         <h3 className="font-[family-name:var(--font-heading)] text-base font-semibold text-text-primary">
           {project.title}
         </h3>
+
         <p className="line-clamp-2 text-sm text-text-secondary">
-          {project.description}
+          {description}
         </p>
 
         <div className="mt-auto flex flex-wrap gap-1.5 pt-2">

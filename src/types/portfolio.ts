@@ -5,14 +5,24 @@ export type ProjectCategory =
   | "machine-learning"
   | "iot";
 
+export type LocalizedText = {
+  en: string;
+  id: string;
+};
+
+export type LocalizedFeatures = {
+  en: string[];
+  id: string[];
+};
+
 export type Project = {
   slug: string;
   title: string;
-  description: string;
+  description: string | LocalizedText;
   problem?: string;
   role?: string;
   technologies: string[];
-  features?: string[];
+  features?: string[] | LocalizedFeatures;
   image: string;
   liveUrl?: string;
   githubUrl?: string;
@@ -23,11 +33,6 @@ export type Project = {
 export type SkillCategory = {
   category: string;
   items: string[];
-};
-
-export type LocalizedText = {
-  en: string;
-  id: string;
 };
 
 export type LocalizedList = {
