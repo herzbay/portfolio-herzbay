@@ -456,3 +456,13 @@ h1, h2, h3, h4 {
     transform: none !important;
   }
 }
+
+
+/* Skills category heading */
+.skill-category-title {
+  color: #ffffff;
+}
+
+:root.light .skill-category-title {
+  color: var(--accent-2);
+}
