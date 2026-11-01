@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -26,7 +25,11 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/60 backdrop-blur-md">
       <nav className="mx-auto flex max-w-[var(--container-width)] items-center justify-between px-6 py-4">
-        <Link href="#" className="flex items-center gap-2">
+        <Link
+          href="#"
+          onClick={() => setIsOpen(false)}
+          className="flex items-center gap-2"
+        >
           <Image
             src="/images/logonav.webp"
             alt="Portfolio logo"
@@ -41,7 +44,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <ul className="hidden items-center gap-6 lg:flex">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -60,9 +63,7 @@ export function Navbar() {
             aria-hidden="true"
           />
 
-          <div className="hidden lg:block">
-            <LanguageSwitch />
-          </div>
+          <LanguageSwitch />
 
           <ThemeToggle />
 
@@ -79,14 +80,14 @@ export function Navbar() {
       </nav>
 
       {isOpen && (
-        <div className="flex flex-col gap-4 border-t border-border bg-background px-6 py-4 lg:hidden">
+        <div className="border-t border-border bg-background px-6 py-4 lg:hidden">
           <ul className="flex flex-col gap-1">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-[var(--radius-sm)] px-2 py-3 text-base text-text-secondary hover:text-accent"
+                  className="block rounded-[var(--radius-sm)] px-2 py-3 text-base text-text-secondary transition-colors hover:text-accent"
                 >
                   {t.nav[item.key]}
                 </Link>
