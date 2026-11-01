@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -139,7 +138,7 @@ function SkillLogo({
   logo: string;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-300 hover:bg-transparent">
+    <div className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 transition-colors duration-300 hover:bg-transparent sm:gap-3">
       <div className="flex size-7 shrink-0 items-center justify-center bg-transparent">
         <img
           src={`https://cdn.simpleicons.org/${logo}`}
@@ -149,7 +148,7 @@ function SkillLogo({
         />
       </div>
 
-      <span className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary">
+      <span className="min-w-0 text-xs text-text-secondary transition-colors duration-200 hover:text-text-primary sm:text-sm">
         {name}
       </span>
     </div>
@@ -184,6 +183,7 @@ export function Skills() {
           {technicalSkills.map((group) => {
             const CategoryIcon = group.icon;
             const isCompact = group.items.length === 3;
+            const isDatabase = group.category === "Database Management";
 
             return (
               <StaggerItem key={group.category} className="h-full">
@@ -205,10 +205,12 @@ export function Skills() {
                   </div>
 
                   <div
-                    className={`grid gap-x-3 gap-y-2 ${
-                      isCompact
-                        ? "grid-cols-3"
-                        : "grid-cols-2"
+                    className={`grid gap-x-2 gap-y-2 sm:gap-x-3 ${
+                      isDatabase
+                        ? "grid-cols-2 sm:grid-cols-3"
+                        : isCompact
+                          ? "grid-cols-3"
+                          : "grid-cols-2"
                     }`}
                   >
                     {group.items.map((item) => (
