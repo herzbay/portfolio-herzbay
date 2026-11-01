@@ -1,9 +1,10 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
 
 type TypewriterTextProps = {
-  text: string;
+  text: string | string[];
   className?: string;
   typingSpeed?: number;
   deletingSpeed?: number;
@@ -17,11 +18,14 @@ export function TypewriterText({
   deletingSpeed = 50,
   pauseDuration = 1800,
 }: TypewriterTextProps) {
+  const texts = Array.isArray(text) ? text : [text];
+
   const [display, setDisplay] = useState("");
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     let prefersReducedMotion = false;
+
     try {
       prefersReducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
@@ -31,42 +35,51 @@ export function TypewriterText({
     }
 
     if (prefersReducedMotion) {
-      setDisplay(text);
+      setDisplay(texts[0] ?? "");
       return;
     }
 
-    let index = 0;
+    let textIndex = 0;
+    let charIndex = 0;
     let isDeleting = false;
+
     setDisplay("");
 
     function tick() {
+      const currentText = texts[textIndex] ?? "";
+
       if (!isDeleting) {
-        index += 1;
-        setDisplay(text.slice(0, index));
+        charIndex += 1;
+        setDisplay(currentText.slice(0, charIndex));
 
-        timeoutRef.current = setTimeout(
-          tick,
-          index >= text.length ? pauseDuration : typingSpeed
-        );
-        if (index >= text.length) isDeleting = true;
+        if (charIndex >= currentText.length) {
+          isDeleting = true;
+          timeoutRef.current = setTimeout(tick, pauseDuration);
+        } else {
+          timeoutRef.current = setTimeout(tick, typingSpeed);
+        }
       } else {
-        index -= 1;
-        setDisplay(text.slice(0, Math.max(index, 0)));
+        charIndex -= 1;
+        setDisplay(currentText.slice(0, charIndex));
 
-        timeoutRef.current = setTimeout(
-          tick,
-          index <= 0 ? 400 : deletingSpeed
-        );
-        if (index <= 0) isDeleting = false;
+        if (charIndex <= 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          timeoutRef.current = setTimeout(tick, 400);
+        } else {
+          timeoutRef.current = setTimeout(tick, deletingSpeed);
+        }
       }
     }
 
     timeoutRef.current = setTimeout(tick, typingSpeed);
 
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
-  }, [text, typingSpeed, deletingSpeed, pauseDuration]);
+  }, [texts, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
     <span className={className}>
@@ -74,7 +87,10 @@ export function TypewriterText({
       <span
         aria-hidden="true"
         className="ml-0.5 inline-block w-[2px] animate-pulse align-middle"
-        style={{ height: "0.9em", backgroundColor: "var(--accent)" }}
+        style={{
+          height: "0.9em",
+          backgroundColor: "var(--accent)",
+        }}
       />
     </span>
   );

@@ -1,11 +1,10 @@
+
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
-import { Sparkle } from "@/components/ui/Sparkle";
-import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 import { AvatarFlipCard } from "@/components/ui/AvatarFlipCard";
 import { TypewriterText } from "@/components/motion/TypewriterText";
 import { socialLinks } from "@/data/social";
@@ -26,32 +25,16 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen items-center overflow-hidden border-b border-border pt-24"
     >
-      <Sparkle
-        className="sparkle-twinkle pointer-events-none absolute left-[8%] top-[20%] h-5 w-5 text-accent"
-        aria-hidden="true"
-      />
-      <Sparkle
-        className="sparkle-twinkle pointer-events-none absolute left-[28%] top-[70%] h-3 w-3 text-accent-2"
-        style={{ animationDelay: "0.8s" }}
-        aria-hidden="true"
-      />
-
       <div className="relative mx-auto grid w-full max-w-[var(--container-width)] items-center gap-12 px-6 py-16 md:grid-cols-[1.3fr_0.7fr] md:py-0">
         <div>
-          <motion.div {...revealUp(0)} className="relative mb-6 inline-block">
-            <p
-              className="-skew-x-6 font-[family-name:var(--font-heading)] text-2xl font-semibold italic tracking-tight sm:text-3xl md:text-4xl"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, var(--accent), var(--accent-2))",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              <TypewriterText text={t.hero.role} />
-            </p>
-            <MarkerUnderline className="absolute -bottom-2 left-1 h-3 w-[85%]" />
+          <motion.div {...revealUp(0)} className="mb-6">
+            <div className="inline-flex min-h-11 items-center rounded-lg border border-white/20 bg-background/30 px-4 py-2 backdrop-blur-sm">
+              <span className="font-[family-name:var(--font-heading)] text-base font-semibold italic tracking-tight text-text-primary sm:text-lg">
+                <TypewriterText
+                  text={["Full Stack Engineer", "Web Developer"]}
+                />
+              </span>
+            </div>
           </motion.div>
 
           <motion.h1
@@ -79,9 +62,11 @@ export function Hero() {
             >
               <Download size={16} /> {t.hero.downloadCv}
             </Button>
+
             <Button href="#projects" variant="secondary">
               {t.hero.viewProjects} <ArrowRight size={16} />
             </Button>
+
             <Button href="#contact" variant="secondary">
               {t.hero.getInTouch}
             </Button>
