@@ -9,27 +9,68 @@ import { CertificationCard } from "@/components/ui/CertificationCard";
 import { PageSwitcher } from "@/components/ui/PageSwitcher";
 import { useLocale } from "@/lib/use-locale";
 
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 2;
+
 
 const certifications = [
   {
     title: "Ethical Hacking Essentials",
     issuer: "EC-Council",
     year: "2026",
-    image: "/images/logonav.webp",
+    image: "/images/c_ehe.jpg",
     description: {
-      en: "Covers fundamental cybersecurity concepts, common cyber threats, network security, and essential techniques for identifying and understanding security vulnerabilities.",
-      id: "Mempelajari dasar-dasar keamanan siber, ancaman digital, keamanan jaringan, serta teknik dasar untuk mengidentifikasi dan memahami kerentanan keamanan.",
+      en: "Achieved a score of 96/100, demonstrating an understanding of fundamental cybersecurity concepts, common cyber threats, network security, and essential ethical hacking techniques.",
+      id: "Memperoleh skor 96/100 dengan pemahaman mengenai konsep dasar keamanan siber, ancaman digital, keamanan jaringan, serta teknik dasar ethical hacking.",
     },
   },
   {
     title: "Web Developer",
-    issuer: "BNSP",
+    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
     year: "2026",
-    image: "/images/logo_ubhinus.webp",
+    image: "/images/c_lsp.jpg",
     description: {
       en: "Demonstrates competency in web development, including website planning, implementation, and testing based on established professional competency standards.",
       id: "Menunjukkan kompetensi dalam pengembangan web, meliputi perencanaan, implementasi, dan pengujian website berdasarkan standar kompetensi kerja.",
+    },
+  },
+  {
+    title: "UI/UX Design",
+    issuer: "PT Dibimbing Digital Indonesia",
+    year: "2025",
+    image: "/images/c_ui.jpg",
+    description: {
+      en: "Completed UI/UX design training covering user interface design, user experience principles, wireframing, prototyping, and designing user-centered digital experiences.",
+      id: "Mengikuti pelatihan UI/UX Design yang mencakup perancangan antarmuka pengguna, prinsip pengalaman pengguna, wireframing, prototyping, serta pembuatan desain digital yang berorientasi pada kebutuhan pengguna.",
+    },
+  },
+  {
+    title: "Code Generation and Optimization",
+    issuer: "Hacktiv8 & IBM",
+    year: "2025",
+    image: "/images/c_code.jpg",
+    description: {
+      en: "Completed training on using IBM Granite generative AI models for code generation and optimization, achieving a final score of 85.55/100.",
+      id: "Menyelesaikan pelatihan penggunaan model AI generatif IBM Granite untuk pembuatan dan optimasi kode program, dengan memperoleh skor akhir 85,55/100.",
+    },
+  },
+  {
+    title: "English Competency Test",
+    issuer: "Universitas Bhinneka Nusantara",
+    year: "2025",
+    image: "/images/c_english.jpg",
+    description: {
+      en: "Achieved a score of 550 in an English competency test assessing Listening Comprehension, Structure and Written Expression, and Reading Comprehension.",
+      id: "Memperoleh skor 550 dalam tes kompetensi bahasa Inggris yang mencakup Listening Comprehension, Structure and Written Expression, serta Reading Comprehension.",
+    },
+  },
+  {
+    title: "Kaggle & Google Colab",
+    issuer: "Universitas Bhinneka Nusantara",
+    year: "2024",
+    image: "/images/c_kaggle.jpg",
+    description: {
+      en: "Participated in a hands-on workshop introducing Kaggle and Google Colab for data science activities, including working with datasets and executing code in a cloud-based notebook environment.",
+      id: "Mengikuti workshop praktik penggunaan Kaggle dan Google Colab untuk kegiatan data science, termasuk pengelolaan dataset dan menjalankan kode melalui lingkungan notebook berbasis cloud.",
     },
   },
 ];
