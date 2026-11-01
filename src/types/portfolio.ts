@@ -25,12 +25,27 @@ export type SkillCategory = {
   items: string[];
 };
 
+export type LocalizedText = {
+  en: string;
+  id: string;
+};
+
+export type LocalizedList = {
+  en: string[];
+  id: string[];
+};
+
 export type ExperienceItem = {
-  title: string;
-  organization: string;
-  period: string;
-  description?: string;
+  id: string;
   type: "work" | "education" | "organization" | "freelance";
+  title: LocalizedText;
+  organization: LocalizedText;
+  location: string;
+  period: string;
+  subtitle?: LocalizedText;
+  logo: string;
+  bullets: LocalizedList;
+  competencies?: LocalizedList;
 };
 
 export type Certification = {
