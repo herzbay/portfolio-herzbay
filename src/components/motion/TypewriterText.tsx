@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type TypewriterTextProps = {
   text: string | string[];
@@ -17,10 +17,8 @@ export function TypewriterText({
   deletingSpeed = 50,
   pauseDuration = 1800,
 }: TypewriterTextProps) {
-  const texts = useMemo(
-    () => (Array.isArray(text) ? text : [text]),
-    [text]
-  );
+  const texts = Array.isArray(text) ? text : [text];
+  const textKey = texts.join("|");
 
   const [display, setDisplay] = useState("");
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -77,7 +75,7 @@ export function TypewriterText({
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [texts, typingSpeed, deletingSpeed, pauseDuration]);
+  }, [textKey, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
     <span className={className}>

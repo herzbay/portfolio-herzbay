@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 import { AvatarFlipCard } from "@/components/ui/AvatarFlipCard";
 import { TypewriterText } from "@/components/motion/TypewriterText";
 import { socialLinks } from "@/data/social";
@@ -28,10 +29,7 @@ export function Hero() {
     >
       <div className="relative mx-auto grid w-full max-w-[var(--container-width)] items-center gap-12 px-6 py-16 md:grid-cols-[1.3fr_0.7fr] md:py-0">
         <div>
-          <motion.div
-            {...revealUp(0)}
-            className="relative mb-6 inline-block rounded-md border border-white/20 px-3 py-1"
-          >
+          <motion.div {...revealUp(0)} className="relative mb-6 inline-block">
             <p
               className="-skew-x-6 font-[family-name:var(--font-heading)] text-2xl font-semibold italic tracking-tight sm:text-3xl md:text-4xl"
               style={{
@@ -39,11 +37,14 @@ export function Hero() {
                   "linear-gradient(135deg, var(--accent), var(--accent-2))",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
+                WebkitTextStroke: "0.35px rgba(255, 255, 255, 0.8)",
                 color: "transparent",
               }}
             >
               <TypewriterText text={heroRoles} />
             </p>
+
+            <MarkerUnderline className="absolute -bottom-2 left-1 h-3 w-[85%]" />
           </motion.div>
 
           <motion.h1
