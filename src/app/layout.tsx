@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     apple: "/images/logonav.webp",
   },
   keywords: [
-    "Bayu Herlambang",
-    "Portfolio",
+    "Bayu Herlambang Portfolio",
+    "STIKI Malang",
     "Full Stack Developer",
     "Web Developer",
     "Mobile Developer",
