@@ -331,7 +331,68 @@ export const projects: Project[] = [
   },
 
   // IoT
-  placeholder("iot", 1),
-  placeholder("iot", 2),
-  placeholder("iot", 3),
+  {
+    slug: "face-door-lock",
+    title: "Face Recognition Door Lock",
+    description: {
+      en: "An ESP32-CAM-based smart door lock system that uses facial recognition to identify authorized users and control an electronic door lock. Features a web-based interface for real-time camera streaming, face registration, and access management through a local Wi-Fi connection.",
+      id: "Sistem kunci pintu pintar berbasis ESP32-CAM yang menggunakan pengenalan wajah untuk mengidentifikasi pengguna terdaftar dan mengendalikan kunci pintu elektronik. Dilengkapi antarmuka web untuk streaming kamera, pendaftaran wajah, dan pengelolaan akses melalui jaringan Wi-Fi lokal.",
+    },
+    technologies: [
+      "ESP32-CAM",
+      "Arduino C/C++",
+      "WebSocket",
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
+    features: {
+      en: [
+        "Face detection and recognition to identify authorized users",
+        "Face enrollment and management for registered users",
+        "Automatic door lock control using a relay module",
+      ],
+      id: [
+        "Deteksi dan pengenalan wajah untuk mengidentifikasi pengguna yang memiliki akses",
+        "Pendaftaran dan pengelolaan data wajah pengguna terdaftar",
+        "Pengendalian kunci pintu otomatis menggunakan modul relay",
+      ],
+    },
+    image: "/images/app-iot-door.jpg",
+    githubUrl: "https://github.com/herzbay/face-door-lock",
+    category: "iot",
+    featured: true,
+  },
+  {
+    slug: "smart-height-measurement",
+    title: "Smart IoT Height Meter",
+    description: {
+      en: "An Arduino-based automatic height measurement system that uses an ultrasonic sensor to measure human height. The system processes distance measurements and displays the calculated height in real time on an LCD, providing a simple and practical measurement solution.",
+      id: "Sistem pengukur tinggi badan otomatis berbasis Arduino yang menggunakan sensor ultrasonik untuk mengukur tinggi badan seseorang. Sistem memproses hasil pengukuran jarak dan menampilkan hasil perhitungan tinggi badan secara langsung pada LCD.",
+    },
+    technologies: [
+      "Arduino Uno R3",
+      "Arduino C/C++",
+      "HC-SR04",
+      "Ultrasonic Sensor",
+      "I2C LCD",
+      "Embedded Systems",
+    ],
+    features: {
+      en: [
+        "Automatic height measurement using an ultrasonic sensor",
+        "Real-time height measurement display on a 16x2 I2C LCD",
+        "Automated distance processing for convenient measurement",
+      ],
+      id: [
+        "Pengukuran tinggi badan otomatis menggunakan sensor ultrasonik",
+        "Tampilan hasil pengukuran secara langsung pada LCD I2C 16x2",
+        "Pemrosesan jarak otomatis untuk memudahkan pengukuran",
+      ],
+    },
+    image: "/images/app-iot-height.jpg",
+    githubUrl: "https://github.com/herzbay/smart-height-measurement",
+    category: "iot",
+    featured: true,
+  },
 ];
