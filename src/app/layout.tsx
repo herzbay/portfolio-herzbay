@@ -23,29 +23,33 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const siteUrl = "https://bayuherlambang.dev"; 
-const title = "Bayu Herlambang — Full Stack Developer";
+const siteUrl = "https://bayuherlambang.my.id";
+const title = "Bayu Herlambang - Portfolio";
 const description =
-  "Portfolio of Bayu Herlambang, a Full Stack Developer specializing in web and mobile application development — from Android apps to modern web platforms.";
+  "Personal portfolio of Bayu Herlambang, an Informatics graduate and aspiring Full Stack Developer specializing in web & mobile application development.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
+  icons: {
+    icon: "/images/logonav.webp",
+    shortcut: "/images/logonav.webp",
+    apple: "/images/logonav.webp",
+  },
   keywords: [
     "Bayu Herlambang",
+    "Portfolio",
     "Full Stack Developer",
-    "Android Developer",
     "Web Developer",
+    "Mobile Developer",
     "Software Engineer",
-    "Flutter Developer",
-    "Next.js Developer",
   ],
   openGraph: {
     title,
     description,
     url: siteUrl,
-    siteName: "Bayu Herlambang Portfolio",
+    siteName: "Bayu Herlambang - Portfolio",
     type: "website",
     locale: "en_US",
   },
